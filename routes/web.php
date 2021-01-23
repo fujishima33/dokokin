@@ -11,16 +11,40 @@
 |
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
     return view('top');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('staff', 'Admin\StaffController@show');
-    Route::get('staff/create', 'Admin\StaffController@add');
-    Route::get('staff/edit', 'Admin\StaffController@edit');
+// 全ユーザ
+Route::group(['prefix' => 'user', 'middleware' => ['auth', 'can:user-higher']], function () {
+  // ユーザ一覧
+    // Route::get('/', 'User/UserController@index');
 });
 
-Auth::routes();
+// 管理者以上
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']], function () {
+    // ユーザ一覧
+    Route::get('staff', 'Admin\StaffController@show');
+    
+    // ユーザ登録
+    Route::get('staff/create', 'Admin\StaffController@add');
+    // Route::get('/staff/create', 'StaffController@create')->name('staff.create');
+    // Route::post('/staff/create', 'StaffController@createData')->name('staff.create');
 
-Route::get('/home', 'HomeController@index')->name('home');
+    // ユーザ編集
+    Route::get('staff/edit', 'Admin\StaffController@edit');
+    // Route::get('/staff/edit/{user_id}', 'StaffController@edit')->name('staff.edit');
+    // Route::post('/staff/edit/{user_id}', 'StaffController@updateData')->name('staff.edit');
+
+    // ユーザ削除
+    // Route::post('/account/delete/{user_id}', 'AccountController@deleteData');
+});
+
+// システム管理者のみ
+    Route::group(['middleware' => ['auth', 'can:system-only']], function () {
+    
+    });
