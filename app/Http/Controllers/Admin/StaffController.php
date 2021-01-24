@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class StaffController extends Controller
 {
+    public function top()
+  {
+      return view('admin');
+  }
+  
     public function show()
   {
       return view('admin.staff');
@@ -25,5 +30,9 @@ class StaffController extends Controller
       return view('admin.staff.edit');
   }
   
+  public function create(Request $request)
+  {
+    
+  }
   
 }
