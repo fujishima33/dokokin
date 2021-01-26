@@ -13,7 +13,7 @@
                 <h2>管理者トップページ</h2>
             </div>
             <div class="col-md-8 mx-auto">
-                <a href="{{ action('Admin\StaffController@show') }}">社員情報</a>
+                <a href="{{ action('Admin\StaffController@index') }}">社員情報</a>
             </div>
         </div>
     </div>

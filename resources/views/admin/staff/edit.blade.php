@@ -13,7 +13,7 @@
                 <h2>社員情報編集</h2>
             </div>
             <div class="col-md-8 mx-auto">
-                <a href="{{ action('Admin\StaffController@show') }}">一覧へ戻る</a>
+                <a href="{{ action('Admin\StaffController@index') }}">一覧へ戻る</a>
             </div>
         </div>
     </div>
