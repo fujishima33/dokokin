@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
+use Hash;
 
 class StaffController extends Controller
 {
@@ -32,7 +34,15 @@ class StaffController extends Controller
   
   public function create(Request $request)
   {
-    
+      $form = $request->all();
+      
+      $user = User::create([
+            'name' => $form['name'],
+            'email' => $form['email'],
+            'password' => Hash::make($form['password']),
+            'role' => $form['role']
+        ]);
+      return redirect('admin/staff');
   }
   
 }
