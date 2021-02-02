@@ -28,7 +28,16 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    protected function redirectTo()
+    {
+        $role = $this->guard()->user()->role;
+        if($role > 0 && $role <= 5){
+            return '/admin';
+        }
+        if($role >= 6 && $role <= 10){
+            return '/general';
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -52,7 +61,6 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            // 'role' => ['required', 'integer', 'max:10'],
         ]);
     }
 

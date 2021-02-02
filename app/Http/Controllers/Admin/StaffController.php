@@ -6,14 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Hash;
+use Auth;
 
 class StaffController extends Controller
 {
-    public function top()
-  {
-      return view('admin');
-  }
-  
     public function add()
   {
       return view('admin.staff.create');

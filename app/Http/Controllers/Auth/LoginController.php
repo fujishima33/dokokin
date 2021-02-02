@@ -25,7 +25,16 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    protected function redirectTo()
+    {
+        $role = $this->guard()->user()->role;
+        if($role > 0 && $role <= 5){
+            return '/admin';
+        }
+        if($role >= 6 && $role <= 10){
+            return '/general';
+        }
+    }
 
     /**
      * Create a new controller instance.
