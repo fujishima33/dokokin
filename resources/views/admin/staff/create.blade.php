@@ -1,7 +1,6 @@
 {{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.admin')
 
-
 {{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
 @section('title', '社員新規登録')
 
@@ -12,15 +11,12 @@
             <div class="col-md-8 mx-auto">
                 <h2>社員新規登録</h2>
             </div>
-            <div class="col-md-8 mx-auto">
-                <a href="{{ action('Admin\StaffController@index') }}">一覧へ戻る</a>
-            </div>
         </div>
+        
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">アカウント登録</div>
-    
                     <div class="card-body">
                         <form method="POST" action="{{ action('Admin\StaffController@create') }}">
                             @csrf

@@ -11,14 +11,14 @@
             <div class="col-md-8 mx-auto">
                 <h2>社員情報</h2>
             </div>
+        </div>
+        
+        <div class="row">
+            
             <div class="col-md-8 mx-auto">
                 <a href="{{ action('Admin\StaffController@add') }}">新規登録</a>
             </div>
-            <div class="col-md-8 mx-auto">
-                <a href="{{ action('AdminController@top') }}">管理者ページへ戻る</a>
-            </div>
-        </div>
-        <div class="row">
+            
             <div class="list-news col-md-8 mx-auto">
                 <div class="row">
                     <table class="table table-hover">
