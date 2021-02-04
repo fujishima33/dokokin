@@ -1,7 +1,6 @@
 {{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.admin')
 
-
 {{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
 @section('title', '社員情報')
 
@@ -41,7 +40,7 @@
                                     <th>{{ $user->name }}</th>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->role }}</td>
-                                    <td><div><a href="">編集</a></div></td>
+                                    <td><div><a href="{{ action('Admin\StaffController@edit', ['id' => $user->id]) }}">編集</a></div></td>
                                 </tr>
                             @endforeach
                         </tbody>

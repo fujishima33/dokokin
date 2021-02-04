@@ -39,11 +39,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     
     // ユーザ編集
     Route::get('staff/edit', 'Admin\StaffController@edit');
-    // Route::get('/staff/edit/{user_id}', 'StaffController@edit')->name('staff.edit');
-    // Route::post('/staff/edit/{user_id}', 'StaffController@updateData')->name('staff.edit');
-
-    // ユーザ削除
-    // Route::post('/account/delete/{user_id}', 'AccountController@deleteData');
+    Route::post('staff/edit', 'Admin\StaffController@update');
+    Route::get('staff/delete', 'Admin\StaffController@delete');
 });
 
 // システム管理者のみ
