@@ -5,10 +5,11 @@ namespace App\Http\Controllers\General;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class GeneralController extends Controller
+class ApplyController extends Controller
 {
-    public function top()
+  public function edit()
   {
-      return view('general');
+      return view('general.apply.edit');
   }
+  
 }
