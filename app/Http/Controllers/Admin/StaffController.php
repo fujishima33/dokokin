@@ -23,14 +23,15 @@ class StaffController extends Controller
             'name' => $form['name'],
             'email' => $form['email'],
             'password' => Hash::make($form['password']),
-            'role' => $form['role']
+            'role' => $form['role'],
+            'author_id' => $form['author_id']
         ]);
       return redirect('admin/staff');
   }
   
   public function index(Request $request)
   {
-      $posts = User::all();
+      $posts = Auth::user()->general_users;
       
       return view('admin.staff', ['posts' => $posts]);
   }
