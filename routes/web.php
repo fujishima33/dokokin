@@ -28,7 +28,7 @@ Route::group(['prefix' => 'general', 'middleware' => ['auth', 'can:user-higher']
 // 管理者以上
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']], function () {
     // 管理者トップページ
-    Route::get('/', 'Admin\StaffController@top');
+    Route::get('/', 'AdminController@top');
     
     // ユーザ一覧
     Route::get('staff', 'Admin\StaffController@index');

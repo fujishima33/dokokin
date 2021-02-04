@@ -18,7 +18,15 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            
+            //role(権限)によって表示ページを振り分け
+            $role = Auth::user()->role;
+            if($role > 0 && $role <= 5){
+                return redirect('/admin');
+            }
+            else if($role >= 6 && $role <= 10){
+                return redirect('/general');
+            }
         }
 
         return $next($request);
