@@ -87,6 +87,7 @@
     
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
+                                    <input type="hidden" name="author_id" value="{{Auth::id()}}">
                                     <button type="submit" class="btn btn-primary">
                                         登録
                                     </button>
