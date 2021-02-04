@@ -20,13 +20,16 @@ Route::get('/', function () {
 });
 
 // 全ユーザ
-Route::group(['prefix' => 'user', 'middleware' => ['auth', 'can:user-higher']], function () {
-  // ユーザ一覧
-    // Route::get('/', 'User/UserController@index');
+Route::group(['prefix' => 'general', 'middleware' => ['auth', 'can:user-higher']], function () {
+  // 一般ユーザトップページ
+    Route::get('/', 'General\GeneralController@top');
 });
 
 // 管理者以上
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']], function () {
+    // 管理者トップページ
+    Route::get('/', 'Admin\StaffController@top');
+    
     // ユーザ一覧
     Route::get('staff', 'Admin\StaffController@show');
     
