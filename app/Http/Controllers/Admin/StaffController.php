@@ -14,10 +14,10 @@ class StaffController extends Controller
       return view('admin');
   }
   
-    public function show()
-  {
-      return view('admin.staff');
-  }
+  //   public function show()
+  // {
+  //     return view('admin.staff');
+  // }
   
     public function add()
   {
@@ -43,6 +43,13 @@ class StaffController extends Controller
             'role' => $form['role']
         ]);
       return redirect('admin/staff');
+  }
+  
+  public function index(Request $request)
+  {
+      $posts = User::all();
+      
+      return view('admin.staff', ['posts' => $posts]);
   }
   
 }

@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     Route::get('/', 'Admin\StaffController@top');
     
     // ユーザ一覧
-    Route::get('staff', 'Admin\StaffController@show');
+    Route::get('staff', 'Admin\StaffController@index');
     
     // ユーザ登録
     Route::get('staff/create', 'Admin\StaffController@add');
