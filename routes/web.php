@@ -35,9 +35,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     
     // ユーザ登録
     Route::get('staff/create', 'Admin\StaffController@add');
-    // Route::get('/staff/create', 'StaffController@create')->name('staff.create');
-    // Route::post('/staff/create', 'StaffController@createData')->name('staff.create');
-
+    Route::post('staff/create', 'Admin\StaffController@create');
+    
     // ユーザ編集
     Route::get('staff/edit', 'Admin\StaffController@edit');
     // Route::get('/staff/edit/{user_id}', 'StaffController@edit')->name('staff.edit');
