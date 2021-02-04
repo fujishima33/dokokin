@@ -12,9 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top');
 });
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('staff', 'Admin\StaffController@show');
     Route::get('staff/create', 'Admin\StaffController@add');
+    Route::get('staff/edit', 'Admin\StaffController@edit');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
