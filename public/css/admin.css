@@ -39,3 +39,34 @@ body {
   background-color: rgba(238, 238, 238, 0.25);
 }
 
+.calendar {
+  margin-top: 20px;
+}
+
+.calendar h3 {
+  margin-bottom: 30px;
+}
+
+.calendar th {
+  height: 30px;
+  text-align: center;
+}
+
+.calendar td {
+  height: 100px;
+}
+
+.calendar .today {
+  background: skyblue;
+}
+
+.calendar th:nth-of-type(1),
+.calendar td:nth-of-type(1) {
+  color: red;
+}
+
+.calendar th:nth-of-type(7),
+.calendar td:nth-of-type(7) {
+  color: blue;
+}
+
