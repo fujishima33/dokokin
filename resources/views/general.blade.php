@@ -17,15 +17,31 @@
                     <div class="">
                         <h3>出勤状況</h3>
                     </div>
-                    <div class='d-inline'>
-                        <button type="button" class="btn btn-primary btn-lg m-3">出社</button>
+                    <div class='d-inline-block'>
+                        <form method="POST" action="{{ route('timestamp/punchin') }}">
+                            @csrf
+                            @method('POST')
+                            <button type="submit" class="btn btn-primary btn-lg m-3">出社</button>
+                        </form>
                     </div>
-                    <div class='d-inline'>
-                        <button type="button" class="btn btn-danger btn-lg m-3">退社</button>
+                    <div class='d-inline-block'>
+                        <form method="POST" action="{{ route('timestamp/punchout') }}">
+                            @csrf
+                            @method('POST')
+                            <button type="submit" class="btn btn-danger btn-lg m-3">退社</button>
+                        </form>
                     </div>
-                    <div class='d-inline'>
+                    <div class='d-inline-block'>
                         <a class="m-3" href="{{ action('GeneralController@report') }}">日報を確認する</a>
                     </div>
+                    @if (session('error'))
+                        <div class="container mt-2">
+                          <div class="alert alert-danger">
+                              {{ session('error') }}
+                          </div>
+                        </div>
+                    @endif
+                    
                 </div>
                 
                 <div class="border mb-3 p-3">
@@ -36,7 +52,7 @@
                     <table class="table table-hover">
                       <thead class="thead-light">
                         <tr>
-                          <th scope="col"  style="width:30%">投稿時間</th>
+                          <th scope="col"  style="width:30%">投稿日時</th>
                           <th scope="col" style="width:70%">タイトル</th>
                         </tr>
                       </thead>

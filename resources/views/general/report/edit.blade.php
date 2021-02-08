@@ -9,7 +9,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mx-auto">
+                
                 <h2>日報 編集</h2>
+                
+                
+                
             </div>
         </div>
         
