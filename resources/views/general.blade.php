@@ -21,18 +21,18 @@
                         <form method="POST" action="{{ route('timestamp/punchin') }}">
                             @csrf
                             @method('POST')
-                            <button type="submit" class="btn btn-primary btn-lg m-3">出社</button>
+                            <button type="submit" class="btn btn-primary btn-lg m-3">出勤</button>
                         </form>
                     </div>
                     <div class='d-inline-block'>
                         <form method="POST" action="{{ route('timestamp/punchout') }}">
                             @csrf
                             @method('POST')
-                            <button type="submit" class="btn btn-danger btn-lg m-3">退社</button>
+                            <button type="submit" class="btn btn-danger btn-lg m-3">退勤</button>
                         </form>
                     </div>
                     <div class='d-inline-block'>
-                        <a class="m-3" href="{{ action('TimestampsController@report') }}">日報を確認する</a>
+                        <a class="m-3" href="{{ action('General\ReportController@report') }}">日報を確認する</a>
                     </div>
                     @if (session('error'))
                         <div class="container mt-2">
