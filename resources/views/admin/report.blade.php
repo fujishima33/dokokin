@@ -26,16 +26,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            @foreach($users as $user)
-                                <tr>
-                                    <th>{{ $user->name }}</th>
-                                    <td>{{ $user->timestamp->sortByDesc('created_at')->first()->punchIn }}</td>
-                                    <td>{{ $user->timestamp->sortByDesc('created_at')->first()->punchOut }}</td>
-                                    <td><div><a href="">表示する</a></div></td>
-                                </tr>
-                            @endforeach
-                            
+                            @if ($users != NULL)
+                                @foreach($users as $user)
+                                    <tr>
+                                        <th>{{ $user->name }}</th>
+                                        <td>{{ $user->timestamp->sortByDesc('updated_at')->first()->punchIn->format('H:i:s') }}</td>
+                                        <td>{{ $user->timestamp->sortByDesc('updated_at')->first()->punchOut->format('H:i:s') }}</td>
+                                        <td><div><a href="{{ action('Admin\ReportController@single', ['id' => $user->id]) }}">表示する</a></div></td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>

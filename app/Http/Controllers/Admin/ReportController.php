@@ -17,4 +17,15 @@ class ReportController extends Controller
         
         return view('admin.report', ['users' => $users]);
     }
+    
+    public function single(Request $request)
+    {
+        $user = User::find($request->id);
+        
+        $reports = Timestamp::where('user_id', $request->id)->latest()->get();
+        if (empty($reports)) {
+        abort(404);    
+        }
+        return view('admin.report.single', ['reports' => $reports, 'user' => $user]);
+    }
 }
