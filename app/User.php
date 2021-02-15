@@ -50,6 +50,6 @@ class User extends Authenticatable
      * 1対多
      */
     public function timestamp() {
-        return $this->hasMany(Timestamp::class);
+        return $this->hasMany('App\Timestamp');
     }
 }

@@ -82,7 +82,7 @@
                                                 <td>{{ \Str::limit($report->detail, 20) }}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="{{ action('General\ReportController@edit', ['id' => $report->id]) }}) }}">編集</a>
+                                                        <a href="{{ action('General\ReportController@edit', ['id' => $report->id]) }}">編集</a>
                                                     </div>
                                                 </td>
                                             </tr>

@@ -46,6 +46,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     // 管理者トップページ
     Route::get('/', 'AdminController@top');
     
+    // 日報-----------------------------------------------------------------
+    Route::get('report', 'Admin\ReportController@index');
+    //社員情報--------------------------------------------------------------
     // ユーザ一覧
     Route::get('staff', 'Admin\StaffController@index');
     // ユーザ登録
@@ -56,17 +59,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     Route::post('staff/edit', 'Admin\StaffController@update');
     Route::get('staff/delete', 'Admin\StaffController@delete');
     
-    // 日報
-    Route::get('report', 'AdminController@report');
-    // 連絡事項
+    
+    // 連絡事項---------------------------------------------------------------
     Route::get('info', 'AdminController@info');
-    // 申請
+    // 申請-------------------------------------------------------------------
     Route::get('apply', 'AdminController@apply');
-    // 案件
+    // 案件-------------------------------------------------------------------
     Route::get('work', 'AdminController@work');
     Route::get('work/create', 'Admin\WorkController@add');
     Route::get('work/edit', 'Admin\WorkController@edit');
-    // 人員配置
+    // 人員配置---------------------------------------------------------------
     Route::get('placement', 'AdminController@placement');
     Route::get('placement/staff', 'Admin\PlacementController@staff');
     Route::get('placement/work', 'Admin\PlacementController@work');

@@ -14,6 +14,6 @@ class Timestamp extends Model
      */
     public function user()
     {
-        $this->belongsTo(User::class);
+        $this->belongsTo('App\User');
     }
 }
