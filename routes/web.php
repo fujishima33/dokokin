@@ -24,18 +24,19 @@ Route::group(['prefix' => 'general', 'middleware' => ['auth', 'can:user-higher']
     // 一般ユーザトップページ
     Route::get('/', 'GeneralController@top');
     
-    // 打刻
-    Route::post('/', 'TimestampsController@punchIn')->name('timestamp/punchin');
-    Route::post('report', 'TimestampsController@punchOut')->name('timestamp/punchout');
-    // 日報
+    // 日報-----------------------------------------------------------------
+    // 一覧
     Route::get('report', 'General\ReportController@report');
     // 日報編集
     Route::get('report/edit', 'General\ReportController@edit');
     Route::post('report/edit', 'General\ReportController@update');
-    // 連絡事項
+    // 打刻
+    Route::post('/', 'TimestampsController@punchIn')->name('timestamp/punchin');
+    Route::post('report', 'TimestampsController@punchOut')->name('timestamp/punchout');
+    // 連絡事項-------------------------------------------------------------
     Route::get('info', 'GeneralController@info');
     Route::get('info/edit', 'General\InfoController@edit');
-    // 申請
+    // 申請-----------------------------------------------------------------
     Route::get('apply', 'GeneralController@apply');
     Route::get('apply/edit', 'General\ApplyController@edit');
     
@@ -51,6 +52,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     Route::get('report', 'Admin\ReportController@index');
     // 単独表示
     Route::get('report/single', 'Admin\ReportController@single');
+    // 連絡事項---------------------------------------------------------------
+    Route::get('info', 'AdminController@info');
+    // 申請-------------------------------------------------------------------
+    Route::get('apply', 'AdminController@apply');
     //社員情報--------------------------------------------------------------
     // ユーザ一覧
     Route::get('staff', 'Admin\StaffController@index');
@@ -61,16 +66,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     Route::get('staff/edit', 'Admin\StaffController@edit');
     Route::post('staff/edit', 'Admin\StaffController@update');
     Route::get('staff/delete', 'Admin\StaffController@delete');
-    
-    
-    // 連絡事項---------------------------------------------------------------
-    Route::get('info', 'AdminController@info');
-    // 申請-------------------------------------------------------------------
-    Route::get('apply', 'AdminController@apply');
     // 案件-------------------------------------------------------------------
-    Route::get('work', 'AdminController@work');
+    // 一覧
+    Route::get('work', 'Admin\WorkController@index');
+    // 作成
     Route::get('work/create', 'Admin\WorkController@add');
+    Route::post('work/create', 'Admin\WorkController@create');
+    // 編集
     Route::get('work/edit', 'Admin\WorkController@edit');
+    Route::post('work/edit', 'Admin\WorkController@update');
+    Route::get('work/delete', 'Admin\WorkController@delete');
+    
+    
     // 人員配置---------------------------------------------------------------
     Route::get('placement', 'AdminController@placement');
     Route::get('placement/staff', 'Admin\PlacementController@staff');

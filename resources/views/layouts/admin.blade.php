@@ -93,7 +93,7 @@
                             <a href="{{ action('Admin\StaffController@index') }}">社員情報</a>
                         </div>
                         <div class="col-md-10 px-0 h5">
-                            <a href="{{ action('AdminController@work') }}">案件情報</a>
+                            <a href="{{ action('Admin\WorkController@index') }}">案件情報</a>
                         </div>
                         <div class="col-md-10 px-0 h5">
                             <a href="{{ action('AdminController@placement') }}">人員配置</a>
