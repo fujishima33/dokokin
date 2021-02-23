@@ -14,7 +14,6 @@ class TimestampsController extends Controller
     public function punchIn()
     {
         $user = Auth::user();
-        $reports = Timestamp::where('user_id', $user->id)->latest()->get();
         /**
          * 打刻は1日一回
          * DB
@@ -52,6 +51,8 @@ class TimestampsController extends Controller
             'punchIn' => Carbon::now(),
         ]);
         
+        $reports = Timestamp::where('user_id', $user->id)->latest()->get();
+        
         Session::flash('my_status', '出勤が完了しました');
         return view('general.report', ['timestamp' => $timestamp, 'reports' => $reports ]);
     }
@@ -59,7 +60,6 @@ class TimestampsController extends Controller
     public function punchOut()
     {
         $user = Auth::user();
-        $reports = Timestamp::where('user_id', $user->id)->latest()->get();
         $timestamp = Timestamp::where('user_id', $user->id)->latest()->first();
 
         if( !empty($timestamp->punchOut)) {
@@ -68,6 +68,8 @@ class TimestampsController extends Controller
         $timestamp->update([
             'punchOut' => Carbon::now()
         ]);
+        
+        $reports = Timestamp::where('user_id', $user->id)->latest()->get();
         
         Session::flash('my_status', '退勤が完了しました');
         return view('general.report', ['timestamp' => $timestamp, 'reports' => $reports ]);

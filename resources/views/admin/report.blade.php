@@ -30,8 +30,22 @@
                                 @foreach($users as $user)
                                     <tr>
                                         <th>{{ $user->name }}</th>
-                                        <td>{{ $user->timestamp->sortByDesc('updated_at')->first()->punchIn->format('H:i:s') }}</td>
-                                        <td>{{ $user->timestamp->sortByDesc('updated_at')->first()->punchOut->format('H:i:s') }}</td>
+                                        <td>
+                                            @if( $timestamp->where('user_id', $user->id)->first() == NULL)
+                                                データなし
+                                            @else
+                                                {{ $user->timestamp->sortByDesc('updated_at')->first()->punchIn->format('H:i:s') }}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if( $timestamp->where('user_id', $user->id)->first() == NULL)
+                                                データなし
+                                            @elseif($user->timestamp->sortByDesc('updated_at')->first()->punchOut == NULL)
+                                                勤務中です
+                                            @else
+                                                {{ $user->timestamp->sortByDesc('updated_at')->first()->punchOut->format('H:i:s') }}
+                                            @endif
+                                        </td>
                                         <td><div><a href="{{ action('Admin\ReportController@single', ['id' => $user->id]) }}">表示する</a></div></td>
                                     </tr>
                                 @endforeach

@@ -14,7 +14,13 @@
                 
                 <div class="border mb-3 p-3">
                     <div class="">
-                        <h3>{{ $timestamp->punchIn->format('m月d日 ') }}の出勤状況</h3>
+                        <h3>
+                            @if($timestamp == NULL)
+                            出勤状況
+                            @else
+                            {{ $timestamp->punchIn->format('m月d日 ') }}の出勤状況
+                            @endif
+                        </h3>
                     </div>
                     
                     
@@ -32,7 +38,11 @@
                         <div class="col-md-8">
                             <div class="m-2 pl-4 h4 d-inline-block">出勤時間</div>
                             <div class="m-2 pl-4 h4 d-inline-block">
-                                {{ $timestamp->punchIn->format('H:i:s') }}
+                                @if($timestamp == NULL)
+                                    初回の打刻をして下さい
+                                @else
+                                    {{ $timestamp->punchIn->format('H:i:s') }}
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -41,7 +51,13 @@
                         <div class="col-md-8">
                             <div class="m-2 pl-4 h4 d-inline-block">退勤時間</div>
                             <div class="m-2 pl-4 h4 d-inline-block">
-                                {{ $timestamp->punchOut->format('H:i:s') }}
+                                @if($timestamp == NULL)
+                                    初回の打刻をして下さい
+                                @elseif($timestamp->punchOut == NULL)
+                                    未入力です
+                                @else
+                                    {{ $timestamp->punchOut->format('H:i:s') }}
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -67,20 +83,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($reports as $report)
-                                            <tr>
-                                                <th>{{ $report->punchIn->format('m月d日') }}</th>
-                                                <td>{{ $report->punchIn->format('H:i:s') }}</th>
-                                                <td>{{ $report->punchOut->format('H:i:s') }}</th>
-                                                <td>{{ $report->work_id }}</td>
-                                                <td>{{ \Str::limit($report->detail, 20) }}</td>
-                                                <td>
-                                                    <div>
-                                                        <a href="{{ action('General\ReportController@edit', ['id' => $report->id]) }}">編集</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                        @if ($reports != NULL)
+                                            @foreach($reports as $report)
+                                                <tr>
+                                                    <th>{{ $report->punchIn->format('m月d日') }}</th>
+                                                    <td>{{ $report->punchIn->format('H:i:s') }}</td>
+                                                    <td>
+                                                        @if($report->punchOut == null)
+                                                        未入力です
+                                                        @else
+                                                        {{ $report->punchOut->format('H:i:s') }}
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $report->work_id }}</td>
+                                                    <td>{{ \Str::limit($report->detail, 20) }}</td>
+                                                    <td>
+                                                        <div>
+                                                            <a href="{{ action('General\ReportController@edit', ['id' => $report->id]) }}">編集</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

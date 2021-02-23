@@ -37,8 +37,17 @@
                                             @foreach($reports as $report)
                                                 <tr>
                                                     <th>{{ $report->punchIn->format('m月d日') }}</th>
-                                                    <td>{{ $report->punchIn->format('H:i:s') }}</th>
-                                                    <td>{{ $report->punchOut->format('H:i:s') }}</th>
+                                                    <td>{{ $report->punchIn->format('H:i:s') }}
+                                                    
+                                                    
+                                                    </td>
+                                                    <td>
+                                                        @if($report->punchOut == null)
+                                                            未入力です
+                                                        @else
+                                                            {{ $report->punchOut->format('H:i:s') }}
+                                                        @endif
+                                                    </td>
                                                     <td>{{ $report->work_id }}</td>
                                                     <td>{{ $report->detail }}</td>
                                                 </tr>
