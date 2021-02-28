@@ -96,7 +96,7 @@
                             <a href="{{ action('Admin\WorkController@index') }}">案件情報</a>
                         </div>
                         <div class="col-md-10 px-0 h5">
-                            <a href="{{ action('AdminController@placement') }}">人員配置</a>
+                            <a href="{{ action('Admin\PlacementController@index') }}">人員配置</a>
                         </div>
                     </div>
                     <div class="col-md-8">

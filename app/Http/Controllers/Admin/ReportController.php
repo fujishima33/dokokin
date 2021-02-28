@@ -28,7 +28,7 @@ class ReportController extends Controller
         
         $reports = Timestamp::where('user_id', $request->id)->latest()->get();
         if (empty($reports)) {
-        abort(404);    
+            abort(404);
         }
         return view('admin.report.single', ['reports' => $reports, 'user' => $user]);
     }

@@ -24,7 +24,7 @@ class ReportController extends Controller
     {
         $report = Timestamp::find($request->id);
         if (empty($report)) {
-        abort(404);    
+            abort(404);
         }
         return view('general.report.edit', ['report_form' => $report]);
     }
@@ -38,6 +38,5 @@ class ReportController extends Controller
         $report->fill($report_form)->save();
         
         return redirect('general/report');
-        
     }
 }

@@ -28,10 +28,10 @@ class LoginController extends Controller
     protected function redirectTo()
     {
         $role = $this->guard()->user()->role;
-        if($role > 0 && $role <= 5){
+        if ($role > 0 && $role <= 5) {
             return '/admin';
         }
-        if($role >= 6 && $role <= 10){
+        if ($role >= 6 && $role <= 10) {
             return '/general';
         }
     }

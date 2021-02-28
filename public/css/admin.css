@@ -54,6 +54,24 @@ body {
 
 .calendar td {
   height: 100px;
+  position: relative;
+}
+
+.calendar td a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.calendar td a p {
+  margin: 4px auto;
+  text-align: center;
+}
+
+.calendar td a:hover {
+  background-color: #FFFFCC;
 }
 
 .calendar .today {
