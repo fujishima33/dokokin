@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Work;
+use App\Placement;
 use Auth;
 
 class PlacementController extends Controller
@@ -54,11 +56,11 @@ class PlacementController extends Controller
             
             if ($today == $date) {
                 // 今日の日付の場合は、class="today"をつける
-                $week .= '<td class="today"><a href="placement/single?id=' . $date . '"><p>' . $day;
+                $week .= '<td class="today"><a href="placement/single?id=' . $date . '"><p>';
             } else {
-                $week .= '<td><a href="placement/single?id=' . $date . '"><p>' . $day;
+                $week .= '<td><a href="placement/single?id=' . $date . '"><p>';
             }
-            $week .= '</p></a></td>';
+            $week .= $day . '</p></a></td>';
             
             // 週終わり、または、月終わりの場合
             if ($youbi % 7 == 6 || $day == $day_count) {
@@ -82,21 +84,86 @@ class PlacementController extends Controller
     {
         $date = $request->id;
         $timestamp = strtotime($date);
-        $month = date('n月j日', $timestamp);
+        $md = date('n月j日', $timestamp);
+        $date = date('Y-m-d 00:00:00', $timestamp);
         
         $users = Auth::user()->general_users;
-        $work = 'test';
+        $regist = Placement::where('regist_date', $date)->get();
+        $work = Work::get();
         
-        return view('admin.placement.single', ['timestamp' => $timestamp, 'month' => $month, 'users' => $users, 'work' => $work]);
+        return view('admin.placement.single', ['timestamp' => $timestamp, 'md' => $md, 'users' => $users, 'regist' => $regist, 'work' => $work]);
     }
+    
     public function edit(Request $request)
     {
         $timestamp = $request->timestamp;
-        $md = date('n月j日', $timestamp);
+        $ymd = date('Y.n.j', $timestamp);
         $user = User::find($request->id);
         
-        return view('admin.placement.edit', ['timestamp' => $timestamp, 'md' => $md, 'user' => $user]);
+        return view('admin.placement.edit', ['timestamp' => $timestamp, 'ymd' => $ymd, 'user' => $user]);
     }
+    
+    public function regist(Request $request)
+    {
+        // Varidationを行う
+        $this->validate($request, Placement::$rules);
+        
+        // 日付とユーザーに一致するデータを探す
+        $timestamp = $request->timestamp;
+        $date = date("Y-m-d 00:00:00", $timestamp);
+        $find = Placement::where('regist_date', $date)
+            ->where('user_id', $request->id)
+            ->first();
+            
+        // 登録データの有無を確認
+        if (!isset($find)) {
+            // データが無い時は新しく作成
+            $placement = new Placement;
+            $form = $request->all();
+            
+            // フォームから送信されてきた_tokenを削除する
+            unset($form['_token']);
+            unset($form['id']);
+            unset($form['timestamp']);
+            
+            // 送信されてきたuser_idはユーザー名なので、idの値を上書きする
+            $user = User::where('name', $request->user_id)->first();
+            $form['user_id'] = $user->id;
+            
+            // 登録されている案件のidの値を上書きする
+            $work = Work::where('work_title', $request->work_id)->first();
+            $form['work_id'] = $work->id;
+            
+            // 該当するデータを上書きして保存する
+            $placement->fill($form)->save();
+        } else {
+            // データが有る時は上書き
+            $form = $request->all();
+            unset($form['_token']);
+            unset($form['id']);
+            unset($form['timestamp']);
+            
+            // 送信されてきたuser_idはユーザー名なので、idの値を上書きする
+            $user = User::where('name', $request->user_id)->first();
+            $form['user_id'] = $user->id;
+            
+            // 登録されている案件のidの値を上書きする
+            $work = Work::where('work_title', $request->work_id)->first();
+            $form['work_id'] = $work->id;
+            
+            // 該当するデータを上書きして保存する
+            $placement = $find->fill($form)->save();
+        }
+        
+        // viewファイルで表示する内容
+        $md = date('n月j日', $timestamp);
+        $users = Auth::user()->general_users;
+        
+        $regist = Placement::where('regist_date', $date)->get();
+        $work = Work::get();
+        return view('admin.placement.single', ['timestamp' => $timestamp, 'md' => $md, 'users' => $users, 'regist' => $regist, 'work' => $work]);
+    }
+    
     
     // 案件一括登録（保留）
     public function create()

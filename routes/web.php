@@ -84,6 +84,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     Route::get('placement', 'Admin\PlacementController@index');
     Route::get('placement/single', 'Admin\PlacementController@single');
     Route::get('placement/edit', 'Admin\PlacementController@edit');
+    Route::post('placement/single', 'Admin\PlacementController@regist');
     
     // 保留
     // Route::get('placement/create', 'Admin\PlacementController@create');
