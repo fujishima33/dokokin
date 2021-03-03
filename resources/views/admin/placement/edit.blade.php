@@ -37,9 +37,18 @@
                 <div class="form-group row">
                     <label for="work_id" class="col-md-2 col-form-label text-md-right">案件名</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="work_id" value="{{ old('work_id') }}">
+                        <select class="form-control" name="work_id">
+                            @if($works->isEmpty())
+                                <option value="">案件が未登録です</option>
+                            @else
+                                @foreach($works as $work)
+                                    <option value="{{ $work->id }}">{{ $work->work_title }}</option>
+                                @endforeach
+                            @endif
+                        </select>
                     </div>
                 </div>
+                <input type="hidden" name="author_id" value="{{Auth::id()}}">
                 <input type="hidden" name="id" value="{{ $user->id }}">
                 <input type="hidden" name="timestamp" value="{{ $timestamp }}">
                 {{ csrf_field() }}

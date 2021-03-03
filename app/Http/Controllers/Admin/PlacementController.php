@@ -13,6 +13,14 @@ class PlacementController extends Controller
 {
     public function index()
     {
+        // 今日の予定を表示
+        $author = Auth::user()->id;
+        $users = Auth::user()->general_users;
+        $today = date('Y-m-d');
+        $regist = Placement::where('regist_date', $today)->get();
+        $works = Work::where('author_id', $author)->get();
+        
+        // カレンダーを表示
         // 前月・次月リンクが押された場合は、GETパラメーターから年月を取得
         if (isset($_GET['ym'])) {
             $ym = $_GET['ym'];
@@ -60,7 +68,19 @@ class PlacementController extends Controller
             } else {
                 $week .= '<td><a href="placement/single?id=' . $date . '"><p>';
             }
-            $week .= $day . '</p></a></td>';
+            // $formed_date = strtotime($date);
+            // $corrected_date = date('Y-m-d', $formed_date);
+            // dd($corrected_date);
+            // $registed = Placement::where('author_id', Auth::user()->id)->where('regist_date', $corrected_date)->work_id->get();
+            // $registed_list = array_column($registed, 'id');
+            
+            
+            $week .= $day . '</p><div>
+            <span class="badge badge-warning ml-2">案件１</span>
+            </div></a></td>';
+            
+            
+            
             
             // 週終わり、または、月終わりの場合
             if ($youbi % 7 == 6 || $day == $day_count) {
@@ -77,7 +97,7 @@ class PlacementController extends Controller
                 $week = '';
             }
         }
-        return view('admin.placement', ['prev' => $prev, 'next' => $next, 'html_title' => $html_title, 'weeks' => $weeks, 'date' => $date ]);
+        return view('admin.placement', ['users' => $users, 'regist' => $regist, 'works' => $works, 'prev' => $prev, 'next' => $next, 'html_title' => $html_title, 'weeks' => $weeks, 'date' => $date ]);
     }
     
     public function single(Request $request)
@@ -96,11 +116,17 @@ class PlacementController extends Controller
     
     public function edit(Request $request)
     {
+        // 日付を取得
         $timestamp = $request->timestamp;
         $ymd = date('Y.n.j', $timestamp);
+        // ユーザー名を取得
         $user = User::find($request->id);
-        
-        return view('admin.placement.edit', ['timestamp' => $timestamp, 'ymd' => $ymd, 'user' => $user]);
+        // ユーザーが属する管理アカウントの案件情報を取得
+        $author = Auth::user()->id;
+        $works = Work::where('author_id', $author)->get();
+        // $a = Work::where('author_id', $author)->get()->first()->work_title;
+        // dd($a);
+        return view('admin.placement.edit', ['timestamp' => $timestamp, 'ymd' => $ymd, 'user' => $user, 'works' => $works]);
     }
     
     public function regist(Request $request)
@@ -130,10 +156,6 @@ class PlacementController extends Controller
             $user = User::where('name', $request->user_id)->first();
             $form['user_id'] = $user->id;
             
-            // 登録されている案件のidの値を上書きする
-            $work = Work::where('work_title', $request->work_id)->first();
-            $form['work_id'] = $work->id;
-            
             // 該当するデータを上書きして保存する
             $placement->fill($form)->save();
         } else {
@@ -146,10 +168,6 @@ class PlacementController extends Controller
             // 送信されてきたuser_idはユーザー名なので、idの値を上書きする
             $user = User::where('name', $request->user_id)->first();
             $form['user_id'] = $user->id;
-            
-            // 登録されている案件のidの値を上書きする
-            $work = Work::where('work_title', $request->work_id)->first();
-            $form['work_id'] = $work->id;
             
             // 該当するデータを上書きして保存する
             $placement = $find->fill($form)->save();
