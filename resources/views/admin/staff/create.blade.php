@@ -73,15 +73,9 @@
                             
                             <div class="form-group row">
                                 <label for="role" class="col-md-4 col-form-label text-md-right">権限</label>
-    
+                                
                                 <div class="col-md-6">
-                                    <input id="role" type="number" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" placeholder="管理者は5、一般ユーザは10を入力" required autocomplete="role">
-    
-                                    @error('role')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <input type="radio" name="role" value="10" checked>一般ユーザー
                                 </div>
                             </div>
     

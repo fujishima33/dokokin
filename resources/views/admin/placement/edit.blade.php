@@ -42,7 +42,7 @@
                                 <option value="">案件が未登録です</option>
                             @else
                                 @foreach($works as $work)
-                                    <option value="{{ $work->id }}">{{ $work->work_title }}</option>
+                                        <option value="{{ $work->id }}">{{ $work->work_title }}</option>
                                 @endforeach
                             @endif
                         </select>
