@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Placement;
+use App\Timestamp;
 use Hash;
 use Auth;
 
@@ -63,8 +65,18 @@ class StaffController extends Controller
   
     public function delete(Request $request)
     {
+        $timestamps = Timestamp::where('user_id', $request->id)->get();
+        $placements = Placement::where('user_id', $request->id)->get();
         $user = User::find($request->id);
+        
+        foreach ($timestamps as $t) {
+            $t->delete();
+        }
+        foreach ($placements as $p) {
+            $p->delete();
+        }
         $user->delete();
+        
         return redirect('admin/staff');
     }
 }

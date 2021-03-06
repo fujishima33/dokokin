@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Work;
 use App\User;
+use App\Placement;
 use Auth;
 
 class WorkController extends Controller
@@ -66,7 +67,13 @@ class WorkController extends Controller
   
     public function delete(Request $request)
     {
+        $placements = Placement::where('work_id', $request->id)->get();
         $work = Work::find($request->id);
+        
+        foreach ($placements as $p) {
+            $p->delete();
+        }
+        
         $work->delete();
         return redirect('admin/work');
     }
