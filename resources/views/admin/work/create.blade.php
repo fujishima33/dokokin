@@ -20,23 +20,22 @@
                     <div class="card-body">
                         <form action="{{ action('Admin\WorkController@create') }}" method="post" enctype="multipart/form-data">
 
-                            @if (count($errors) > 0)
-                                <ul>
-                                    @foreach($errors->all() as $e)
-                                        <li>{{ $e }}</li>
-                                    @endforeach
-                                </ul>
-                            @endif
                             <div class="form-group row">
                                 <label class="col-md-2">案件名</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" name="work_title" value="{{ old('work_title') }}">
+                                    <input type="text" class="form-control @error('work_title') is-invalid @enderror" name="work_title" value="{{ old('work_title') }}">
+                                    @if ($errors->has('work_title'))
+                                        <div class="text-danger">{{$errors->first('work_title')}}</div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-2">内容</label>
                                 <div class="col-md-10">
-                                    <textarea class="form-control" name="body" rows="5">{{ old('body') }}</textarea>
+                                    <textarea class="form-control @error('body') is-invalid @enderror" name="body" rows="5">{{ old('body') }}</textarea>
+                                    @if ($errors->has('body'))
+                                        <div class="text-danger">{{$errors->first('body')}}</div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row">
