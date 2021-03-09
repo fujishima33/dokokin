@@ -16,7 +16,6 @@ class ReportController extends Controller
         $timestamp = Timestamp::where('user_id', $user->id)->latest()->first();
         $reports = Timestamp::where('user_id', $user->id)->latest()->get();
         
-        // dd($timestamp);
         return view('general.report', ['timestamp' => $timestamp, 'reports' => $reports ]);
     }
     

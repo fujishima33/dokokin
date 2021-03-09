@@ -21,20 +21,28 @@ class StaffController extends Controller
     {
         // Varidationを行う
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|max:255|unique:users|email',
-            'password' => 'required|string|min:8|confirmed',
+            'name'       => 'required|string|max:255',
+            'email'      => 'required|string|max:255|unique:users|email',
+            'password'   => 'required|string|min:8|confirmed',
+            'image'      => 'mimes:jpeg,png,jpg'
         ]);
         
-        $form = $request->all();
-      
-        $user = User::create([
-            'name' => $form['name'],
-            'email' => $form['email'],
-            'password' => Hash::make($form['password']),
-            'role' => $form['role'],
-            'author_id' => $form['author_id']
-        ]);
+        $user = new User;
+        
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request['password']);
+        $user->role = $request->role;
+        $user->author_id = $request->author_id;
+        
+        if (isset($request['image'])) {
+            $path = $request->file('image')->store('public/image');
+            $user->image_path = basename($path);
+        } else {
+            $user->image_path = null;
+        }
+        
+        $user->save();
         
         return redirect('admin/staff');
     }
@@ -42,7 +50,7 @@ class StaffController extends Controller
     public function index(Request $request)
     {
         $users = Auth::user()->general_users;
-      
+        
         return view('admin.staff', ['users' => $users]);
     }
   
@@ -68,7 +76,17 @@ class StaffController extends Controller
       
         // 送信されてきたフォームデータを格納する
         $user_form = $request->all();
+        if ($request->remove == 'true') {
+            $user_form['image_path'] = null;
+        } elseif ($request->file('image')) {
+            $path = $request->file('image')->store('public/image');
+            $user_form['image_path'] = basename($path);
+        } else {
+            $user_form['image_path'] = $user->image_path;
+        }
       
+        unset($user_form['image']);
+        unset($user_form['remove']);
         unset($user_form['_token']);
 
         // 該当するデータを上書きして保存する

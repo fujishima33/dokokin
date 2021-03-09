@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-header">アカウント登録</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ action('Admin\StaffController@create') }}">
+                        <form method="POST" action="{{ action('Admin\StaffController@create') }}" enctype="multipart/form-data">
                             @csrf
                             
                             <div class="form-group row">
@@ -67,6 +67,17 @@
                                 
                                 <div class="col-md-6">
                                     <input type="radio" name="role" value="10" checked>一般ユーザー
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="image" class="col-md-4 col-form-label text-md-right">プロフィール画像</label>
+                                
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control-file @error('image') is-invalid @enderror" name="image">
+                                    @if ($errors->has('image'))
+                                        <div class="text-danger">{{$errors->first('image')}}</div>
+                                    @endif
                                 </div>
                             </div>
     

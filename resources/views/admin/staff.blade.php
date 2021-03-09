@@ -24,6 +24,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
+                                <th width="10%"></th>
                                 <th width="20%">氏名</th>
                                 <th width="30%">メールアドレス</th>
                                 <th width="20%">権限</th>
@@ -33,7 +34,12 @@
                         <tbody>
                             @foreach($users as $user)
                                 <tr>
-                                    <th>{{ $user->name }}</th>
+                                    <th>
+                                        @if ($user->image_path)
+                                            <img src="{{ asset('storage/image/' . $user->image_path) }}">
+                                        @endif
+                                    </th>
+                                    <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     @if($user->role == 5)
                                         <td>管理者</td>
