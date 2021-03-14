@@ -2,43 +2,47 @@
 @extends('layouts.admin')
 
 {{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-@section('title', '案件情報')
+@section('title', '案件一覧')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mx-auto">
-                <h2>案件情報</h2>
+            <div class="col-md-12 mx-auto p-0 mb-1 staff-info">
+                <div class="staff-info-left">
+                    <h3>案件一覧</h3>
+                </div>
+                <div class="staff-info-right">
+                    <button type="submit" class="btn btn-primary">
+                        <a href="{{ action('Admin\WorkController@create') }}">新規登録</a>
+                    </button>
+                </div>
             </div>
         </div>
         
         <div class="row">
-            
-            <div class="col-md-12">
-                <a href="{{ action('Admin\WorkController@create') }}">新規登録</a>
-            </div>
-            
-            <div class="list-news col-md-12 mx-auto">
+            <div class="col-md-12 mx-auto">
                 <div class="row">
-                    <table class="table table-hover">
+                    <table class="table table-bordered work-index">
                         <thead>
                             <tr>
                                 <th width="20%">案件名</th>
-                                <th width="30%">内容</th>
-                                <th width="10%">進行状況</th>
-                                <th width="5%"></th>
-                                <th width="5%"></th>
+                                <th width="50%">内容</th>
+                                <th width="20%">進行状況</th>
+                                <th width="10%"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($works as $work)
                                 <tr>
-                                    <th>{{ $work->work_title }}</th>
-                                    <td>{{ $work->body }}</td>
-                                    <td>{{ $work->status }}</td>
-                                    <td><div><a href="{{ action('Admin\WorkController@edit', ['id' => $work->id]) }}">編集</a></div></td>
-                                    <td><div><a href="{{ action('Admin\WorkController@delete', ['id' => $work->id]) }}">削除</a></div></td>
+                                    <th><div class="work-index-column">{{ $work->work_title }}</div></th>
+                                    <td><div class="work-index-column">{{ $work->body }}</div></td>
+                                    <td><div class="work-index-column">{{ $work->status }}</div></td>
+                                    <td>
+                                        <div class="work-index-column">
+                                            <a href="{{ action('Admin\WorkController@edit', ['id' => $work->id]) }}">編集</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

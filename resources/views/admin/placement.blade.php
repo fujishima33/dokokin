@@ -2,23 +2,22 @@
 @extends('layouts.admin')
 
 {{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-@section('title', '人員配置')
+@section('title', 'シフト管理')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mx-auto">
-                
-                <div class="">
-                    <h2>人員配置</h2>
+            <div class="col-md-12 mx-auto container-all">
+                <div>
+                    <h3>シフト管理</h3>
                 </div>
                 <div class="border mb-3 p-3">
-                    <div class="">
+                    <div>
                         <h3>今日の予定</h3>
                     </div>
                     <div>
-                        <table class="table table-hover">
+                        <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th width="20%">氏名</th>
@@ -28,11 +27,15 @@
                         <tbody>
                             @foreach($users as $user)
                                 <tr>
-                                    <th>{{ $user->name }}</th>
+                                    <th><div class="pla-index-column">{{ $user->name }}</div></th>
                                     @if($regist->where('user_id', $user->id)->first() == NULL)
-                                        <td>未登録</td>
+                                        <td><div class="pla-index-column">未登録</div></td>
                                     @else
-                                        <td>{{ $works->where('id', $regist->where('user_id', $user->id)->first()->work_id)->first()->work_title }}</td>
+                                        <td>
+                                            <div class="pla-index-column">
+                                                {{ $works->where('id', $regist->where('user_id', $user->id)->first()->work_id)->first()->work_title }}
+                                            </div>
+                                        </td>
                                     @endif
                                 </tr>
                             @endforeach
@@ -41,17 +44,17 @@
                     </div>
                 </div>
                 
-                <div class="border mb-3 p-3">
-                    <div class="">
+                <div class="border p-3">
+                    <div>
                         <h3>予定一覧</h3>
                     </div>
                     
                     <div class="calendar">
-                        <h3>
+                        <h4>
                             <a href="?ym={{ $prev }}">&lt;</a>
                             {{ $html_title }}
                             <a href="?ym={{ $next }}">&gt;</a>
-                        </h3>
+                        </h4>
                         
                         <table class="table table-bordered">
                             <tr>

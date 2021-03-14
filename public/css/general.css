@@ -1,0 +1,50 @@
+.gen-avatar {
+  text-align: center;
+}
+
+.gen-avatar img {
+  width: 100%;
+  max-width: 150px;
+}
+
+h5 {
+  margin: 10px 0 20px;
+}
+
+.punch {
+  text-align: center;
+}
+
+.time p {
+  font-size: 40px;
+  text-align: center;
+  margin: 0;
+}
+
+.punch-newest {
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .gen-avatar img {
+    min-width: 150px;
+  }
+
+  h5 {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .time p {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .calendar .badge {
+    width: 80%;
+    margin: 0 10%;
+  }
+}
+

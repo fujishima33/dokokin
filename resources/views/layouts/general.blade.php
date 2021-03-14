@@ -16,21 +16,22 @@
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;700&display=swap" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         {{-- Laravel標準CSSを読み込み --}}
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         {{-- このファイル用のCSSを読み込み --}}
         <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/general.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
             {{-- 画面上部ナビゲーションバー。 --}}
             <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('/general') }}">
+                        {{ config('app.name', 'どこ勤') }}
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -39,7 +40,10 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                            
+                            <p class="link ml-0 my-2"><a href="{{ action('General\ReportController@report') }}">日報</a></p>
+                            <p class="link ml-0 my-2"><a href="{{ action('GeneralController@info') }}">連絡事項</a></p>
+                            <p class="link ml-0 my-2"><a href="{{ action('GeneralController@apply') }}">休暇申請</a></p>
+                            <p class="link ml-0 my-2"><a href="{{ action('General\WorkController@index') }}">案件情報</a></p>
                         </ul>
                         
                         <!-- Right Side Of Navbar -->
@@ -74,26 +78,9 @@
             </nav>
             {{-- ここまでナビゲーションバー --}}
 
-            <main class="py-4">
-                <div class="row justify-content-center">
-                    <div class="col-md-2 p-3">
-                        <div class="col-md-10 px-0 h5">
-                            <a href="{{ action('GeneralController@top') }}">トップ</a>
-                        </div>
-                        <div class="col-md-10 px-0 h5">
-                            <a href="{{ action('General\ReportController@report') }}">日報</a>
-                        </div>
-                        <div class="col-md-10 px-0 h5">
-                            <a href="{{ action('GeneralController@info') }}">連絡事項</a>
-                        </div>
-                        <div class="col-md-10 px-0 h5">
-                            <a href="{{ action('GeneralController@apply') }}">休暇申請</a>
-                        </div>
-                        <div class="col-md-10 px-0 h5">
-                            <a href="{{ action('General\WorkController@index') }}">案件情報</a>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
+            <main>
+                <div class="row justify-content-center main-all">
+                    <div class="col-md-8 main-content">
                         @yield('content')
                     </div>
                 </div>
