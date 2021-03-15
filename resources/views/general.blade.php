@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 
-                <div class="border mb-3 p-3">
+                <div class="border mb-3 p-3 top-info">
                     <div>
                         <h3>連絡事項</h3>
                     </div>
@@ -75,6 +75,11 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="pager">
+                        <div class="prev">&lt;</div>
+                        <div class="current">1</div>
+                        <div class="next">&gt;</div>
+                    </div>
                 </div>
                 
                 <div class="border p-3">

@@ -1,91 +1,127 @@
 // 全体 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 body {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #fff;
-  color: #000;
-  font-family: 'M PLUS 1p', sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    color: #000;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 
 h3 {
-  font-size: 20px;
+    font-size: 20px;
 }
 h4 {
-  font-size: 16px;
+    font-size: 16px;
 }
 thead th {
   background-color: #eee;
 }
 button a {
-  color: #fff;
+    color: #fff;
 }
 button a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+// ページネーション関連
+.pager {
+  letter-spacing: -.5em;
+  text-align: center;
+}
+.prev, .next {
+  font-size: 8px;
+  letter-spacing: normal;
+  width: 32px;
+  height: 35px;
+  line-height: 35px;
+  border: solid 1px #dee2e6;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  color: #788088;
+}
+.prev {
+  border-radius: 3px 0 0 3px;
+}
+.current {
+  font-size: 14px;
+  letter-spacing: normal;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  // border: solid 1px #dee2e6;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
   color: #fff;
-  text-decoration: none;
+  background-color: #3490dc;
+}
+.next {
+  border-radius: 0 3px 3px 0;
 }
 
 // nav ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .navbar-laravel {
-  position: fixed;
-  width: 100%;
-  background-color: #eee;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.04);
-  z-index: 10;
+    position: fixed;
+    width: 100%;
+    background-color: #eee;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.04);
+    z-index: 10;
 }
 .navbar-brand {
-  color: #000 !important;
-  font-size: 24px;
-  font-weight: 700;
-  margin-right: 40px;
+    color: #000 !important;
+    font-size: 24px;
+    font-weight: 700;
+    margin-right: 40px;
 }
 .nav-link {
-  color: #000 !important;
+    color: #000 !important;
 }
 .navbar-toggler{
-  border-color: rgba(0, 0, 0,1) !important;
+    border-color: rgba(0, 0, 0,1) !important;
 }
 .navbar-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 .link {
-  margin: auto;
-  padding-right: 20px;
-  font-size: 16px;
-  a {
-    color: #888;
-  }
+    margin: auto;
+    padding-right: 20px;
+    font-size: 16px;
+    a {
+        color: #888;
+    }
 }
 .link a:hover {
-  color: #000;
+    color: #000;
 }
 .active {
-  color: #f00;
+    color: #f00;
 }
 .active a:hover {
-  color: #c00;
+    color: #c00;
 }
 
 // main ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 main {
-  background-color: #fff;
-  padding-top: 64px;
-  z-index: 1;
+    background-color: #fff;
+    padding-top: 64px;
+    z-index: 1;
 }
 .main-all {
-  margin: 0;
+    margin: 0;
 }
 .main-content {
-  padding: 20px;
+    padding: 20px;
 }
 .left-col, .right-col {
     background-color: #fff;
 }
 .left-col {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .container-all {
-  padding: 0;
+    padding: 0;
 }
 
 // 打刻・日報
@@ -93,10 +129,18 @@ main {
 
 // 連絡
 thead {
-  background-color: #eee;
-  th {
-    font-weight: 500;
-  }
+    background-color: #eee;
+    th {
+        font-weight: 500;
+    }
+}
+.top-info {
+    .pager {
+        text-align: left;
+        .prev, .current, .next {
+            text-align: center;
+        }
+    }
 }
 
 // カレンダー
@@ -117,33 +161,33 @@ thead {
         position: relative;
         overflow: hidden;
         a {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          color: #000;
-          text-decoration: none;
-          p {
-            margin: 4px auto;
-            text-align: center;
-          }
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            color: #000;
+            text-decoration: none;
+            p {
+                margin: 4px auto;
+                text-align: center;
+            }
         }
         a:hover {
-          background-color: #FFFFCC;
+            background-color: #FFFFCC;
         }
     }
     .table th, .table td {
         padding: 0;
     }
     .today p {
-          color: #fff;
-          background-color: #1967D2;
-          width: 23px;
-        	height: 23px;
-        	border-radius: 50%;
-        	text-align: center;
-        	line-height: 23px;
+        color: #fff;
+        background-color: #1967D2;
+        width: 23px;
+      	height: 23px;
+      	border-radius: 50%;
+      	text-align: center;
+      	line-height: 23px;
     }
     th:nth-of-type(1), td:nth-of-type(1) {
         color: red;
@@ -154,89 +198,89 @@ thead {
         background-color: #c8e7fa;
     }
     .badge {
-      width: 80%;
-      margin: 0 10%;
-      overflow: hidden;
+        width: 80%;
+        margin: 0 10%;
+        overflow: hidden;
     }
 }
 
 // admin/staff（社員情報）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .staff-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  h3 {
-    margin: 0;
-  }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+        margin: 0;
+    }
 }
 .staff-info-right a {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 .profile {
-  white-space: nowrap;
+    white-space: nowrap;
 }
 .profile img {
-  width: 50px;
-  height: 50px;
+    width: 50px;
+    height: 50px;
 }
 .avatar {
-  text-align: center;
+    text-align: center;
 }
 // admin/staff/create（社員登録）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .card-body {
-  border: 0px none;
+    border: 0px none;
 }
 // admin/work（案件一覧）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .work-index-column {
-  height: 120px;
-  overflow: hidden;
+    height: 120px;
+    overflow: hidden;
 }
 
 // admin/work/create（案件登録）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .pla-index-column {
-  height: 40px;
-  overflow: hidden;
+    height: 40px;
+    overflow: hidden;
 }
 
 
 // レスポンシブ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // 576px 以上のスタイル
 @media (min-width: 576px) {
-  .calendar .badge {
-      width: 80%;
-      margin: 0 10%;
+    .calendar .badge {
+        width: 80%;
+        margin: 0 10%;
     }
 }
 // 768px 以上のスタイル
 @media (min-width: 768px) {
-  .profile img {
-    width: 100px;
-    height: 100px;
-  }
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
 }
 // 992px 以上のスタイル
 @media (min-width: 992px) {
-  .work-index-column {
-    height: 80px;
-  }
-  .pla-index-column {
-    height: 24px;
-  }
+    .work-index-column {
+        height: 80px;
+    }
+    .pla-index-column {
+        height: 24px;
+    }
 }
 // 1200px 以上のスタイル
 @media (min-width: 1200px) {
-  .navbar-brand {
-    margin-right: 80px;
-  }
-  .link {
-    padding-right: 40px;
-  }
-  .calendar .badge {
-    width: 40%;
-    margin: 0 5%;
-  }
-  .work-index-column {
-  height: 40px;
-}
+    .navbar-brand {
+        margin-right: 80px;
+    }
+    .link {
+        padding-right: 40px;
+    }
+    .calendar .badge {
+        width: 40%;
+        margin: 0 5%;
+    }
+    .work-index-column {
+      height: 40px;
+    }
 }

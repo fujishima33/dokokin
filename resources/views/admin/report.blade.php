@@ -52,6 +52,17 @@
                             @endif
                         </tbody>
                     </table>
+                    <div class="pagination">
+                        @if ( $users->hasPages() )
+                            {{ $users->links() }}
+                        @else
+                            <div class="pager">
+                                <div class="prev">&lt;</div>
+                                <div class="current">1</div>
+                                <div class="next">&gt;</div>
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

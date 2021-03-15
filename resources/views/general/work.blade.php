@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12 mx-auto p-0 mb-1 staff-info">
                 <div>
-                    <h3>案件情報(一般)</h3>
+                    <h3>案件一覧</h3>
                 </div>
             </div>
         </div>
@@ -36,6 +36,17 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="pagination">
+                        @if ( $works->hasPages() )
+                            {{ $works->links() }}
+                        @else
+                            <div class="pager">
+                                <div class="prev">&lt;</div>
+                                <div class="current">1</div>
+                                <div class="next">&gt;</div>
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

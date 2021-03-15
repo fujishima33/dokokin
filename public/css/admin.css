@@ -27,6 +27,46 @@ button a:hover {
   text-decoration: none;
 }
 
+.pager {
+  letter-spacing: -0.5em;
+  text-align: center;
+}
+
+.prev,
+.next {
+  font-size: 8px;
+  letter-spacing: normal;
+  width: 32px;
+  height: 35px;
+  line-height: 35px;
+  border: solid 1px #dee2e6;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  color: #788088;
+}
+
+.prev {
+  border-radius: 3px 0 0 3px;
+}
+
+.current {
+  font-size: 14px;
+  letter-spacing: normal;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  color: #fff;
+  background-color: #3490dc;
+}
+
+.next {
+  border-radius: 0 3px 3px 0;
+}
+
 .navbar-laravel {
   position: fixed;
   width: 100%;
@@ -109,6 +149,16 @@ thead {
 
 thead th {
   font-weight: 500;
+}
+
+.top-info .pager {
+  text-align: left;
+}
+
+.top-info .pager .prev,
+.top-info .pager .current,
+.top-info .pager .next {
+  text-align: center;
 }
 
 .calendar {
