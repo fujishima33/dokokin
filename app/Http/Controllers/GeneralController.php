@@ -12,7 +12,6 @@ use Auth;
 class GeneralController extends Controller
 {
     public function top()
-    {
         // 表示するユーザー
         $user = Auth::user();
         
@@ -111,7 +110,14 @@ class GeneralController extends Controller
             }
         }
         
-        return view('general', ['user' => $user, 'prev' => $prev, 'next' => $next, 'html_title' => $html_title, 'weeks' => $weeks, 'date' => $date ]);
+        return view('general', [
+            'user' => $user,
+            'prev' => $prev,
+            'next' => $next,
+            'html_title' => $html_title,
+            'weeks' => $weeks,
+            'date' => $date
+            ]);
     }
 
     public function info()

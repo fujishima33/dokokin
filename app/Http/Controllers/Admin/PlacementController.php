@@ -114,7 +114,16 @@ class PlacementController extends Controller
                 $week = '';
             }
         }
-        return view('admin.placement', ['users' => $users, 'regist' => $regist, 'works' => $works, 'prev' => $prev, 'next' => $next, 'html_title' => $html_title, 'weeks' => $weeks, 'date' => $date ]);
+        return view('admin.placement', [
+            'users' => $users,
+            'regist' => $regist,
+            'works' => $works,
+            'prev' => $prev,
+            'next' => $next,
+            'html_title' => $html_title,
+            'weeks' => $weeks,
+            'date' => $date
+            ]);
     }
     
     public function single(Request $request)
@@ -131,7 +140,13 @@ class PlacementController extends Controller
         $regist = Placement::where('regist_date', $date)->get();
         $work = Work::get();
         
-        return view('admin.placement.single', ['timestamp' => $timestamp, 'md' => $md, 'users' => $users, 'regist' => $regist, 'work' => $work]);
+        return view('admin.placement.single', [
+            'timestamp' => $timestamp,
+            'md' => $md,
+            'users' => $users,
+            'regist' => $regist,
+            'work' => $work
+            ]);
     }
     
     public function edit(Request $request)
@@ -144,8 +159,19 @@ class PlacementController extends Controller
         // ユーザーが属する管理アカウントの案件情報を取得
         $author = Auth::user()->id;
         $works = Work::where('author_id', $author)->get();
+        // 配置の登録があるかどうか（bladeファイルでIF判定に使用するため）
+        $userid = $request->id;
+        $timestamp = $request->timestamp;
+        $time = date('Y-m-d 00:00:00', $timestamp);
+        $placement = Placement::where('user_id', $request->id)->where('regist_date', $time)->first();
         
-        return view('admin.placement.edit', ['timestamp' => $timestamp, 'ymd' => $ymd, 'user' => $user, 'works' => $works]);
+        return view('admin.placement.edit', [
+            'timestamp' => $timestamp,
+            'ymd' => $ymd,
+            'user' => $user,
+            'works' => $works,
+            'placement' => $placement
+            ]);
     }
     
     public function regist(Request $request)
@@ -187,13 +213,44 @@ class PlacementController extends Controller
         $md = date('n月j日', $timestamp);
         $author = Auth::user()->id;
         $users = User::where('author_id', $author)->paginate(20);
-        
         $regist = Placement::where('regist_date', $date)->get();
         $work = Work::get();
         
-        return view('admin.placement.single', ['timestamp' => $timestamp, 'md' => $md, 'users' => $users, 'regist' => $regist, 'work' => $work]);
+        return view('admin.placement.single', [
+            'timestamp' => $timestamp,
+            'md' => $md,
+            'users' => $users,
+            'regist' => $regist,
+            'work' => $work
+            ]);
     }
     
+    public function delete(Request $request)
+    {
+        // 日時とユーザーで人員配置のデータを探す
+        $regist = date('Y-m-d 00:00:00', $request->timestamp);
+        $id = date('Y-m-j', $request->timestamp);
+        $placement = Placement::where('user_id', $request->id)->where('regist_date', $regist)->first();
+        // 削除
+        $placement->delete();
+        
+        // viewファイルで表示する内容
+        $timestamp = $request->timestamp;
+        $date = date("Y-m-d 00:00:00", $timestamp);
+        $md = date('n月j日', $timestamp);
+        $author = Auth::user()->id;
+        $users = User::where('author_id', $author)->paginate(20);
+        $regist = Placement::where('regist_date', $date)->get();
+        $work = Work::get();
+        
+        return view('admin.placement.single', [
+            'timestamp' => $timestamp,
+            'md' => $md,
+            'users' => $users,
+            'regist' => $regist,
+            'work' => $work
+            ]);
+    }
     
     // 案件一括登録（保留）
     public function create()

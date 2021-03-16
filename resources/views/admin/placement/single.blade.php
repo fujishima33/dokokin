@@ -36,7 +36,7 @@
                                     <td>
                                         <div>
                                             <a href="{{ action('Admin\PlacementController@edit', ['id' => $user->id, 'timestamp' => $timestamp]) }}">
-                                            登録
+                                            編集
                                             </a>
                                         </div>
                                     </td>
