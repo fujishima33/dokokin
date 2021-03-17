@@ -15,7 +15,7 @@
         </div>    
         <div class="row">
             <div class="col-md-12 mx-auto p-0">
-                <h4>{{ $user->name}} の出勤状況一覧</h4>
+                <h4> {{ $user->name }}の出勤状況一覧</h4>
             </div>
         </div>    
         <div class="row">
@@ -54,15 +54,7 @@
                     </tbody>
                 </table>
                 <div class="pagination">
-                    @if ( $reports->hasPages() )
-                        {{ $reports->links() }}
-                    @else
-                        <div class="pager">
-                            <div class="prev">&lt;</div>
-                            <div class="current">1</div>
-                            <div class="next">&gt;</div>
-                        </div>
-                    @endif
+                    {{ $reports->appends(request()->query())->links() }}
                 </div>
             </div>
         </div>

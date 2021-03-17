@@ -12,6 +12,7 @@ use Auth;
 class GeneralController extends Controller
 {
     public function top()
+    {
         // 表示するユーザー
         $user = Auth::user();
         

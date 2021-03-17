@@ -15,13 +15,8 @@ class TimestampsController extends Controller
     public function punchIn()
     {
         $user = Auth::user();
-        // ログインしているユーザーの管理者が作成した案件を取得
-        $author = Auth::user()->author_id;
-        $works = Work::where('author_id', $author)->get();
-        /**
-         * 打刻は1日一回
-         * DB
-         */
+        
+        // 打刻は1日一回
         $oldTimestamp = Timestamp::where('user_id', $user->id)->latest()->first();
         
         if ($oldTimestamp) {
@@ -34,14 +29,12 @@ class TimestampsController extends Controller
             ]);
             
             Session::flash('my_status', '出勤が完了しました');
-            return view('general.report', ['timestamp' => $timestamp, 'reports' => $reports, 'works' => $works ]);
+            return redirect('general/report');
         }
         
         $newTimestampDay = Carbon::today();
-
-        /**
-         * 日付を比較する。同日付の出勤打刻で、かつ直前のTimestampの退勤打刻がされていない場合エラーを吐き出す。
-         */
+        
+        // 日付を比較する。同日付の出勤打刻で、かつ直前のTimestampの退勤打刻がされていない場合エラーを吐き出す。
         if (($oldTimestampDay == $newTimestampDay) && (empty($oldTimestamp->punchOut))) {
             return redirect()->back()->with('error', 'すでに出勤打刻がされています');
         }
@@ -51,11 +44,8 @@ class TimestampsController extends Controller
             'punchIn' => Carbon::now(),
         ]);
         
-        // 打刻の時間表示用
-        $reports = Timestamp::where('user_id', $user->id)->latest()->get();
-        
         Session::flash('my_status', '出勤が完了しました');
-        return view('general.report', ['timestamp' => $timestamp, 'reports' => $reports, 'works' => $works ]);
+        return redirect('general/report');
     }
 
     public function punchOut()
@@ -63,9 +53,6 @@ class TimestampsController extends Controller
         $user = Auth::user();
         // 打刻の時間表示用
         $timestamp = Timestamp::where('user_id', $user->id)->latest()->first();
-        // ログインしているユーザーの管理者が作成した案件を取得
-        $author = Auth::user()->author_id;
-        $works = Work::where('author_id', $author)->get();
 
         if (!empty($timestamp->punchOut)) {
             return redirect()->back()->with('error', '既に退勤の打刻がされているか、出勤打刻されていません');
@@ -74,10 +61,7 @@ class TimestampsController extends Controller
             'punchOut' => Carbon::now()
         ]);
         
-        // 打刻の時間表示用
-        $reports = Timestamp::where('user_id', $user->id)->latest()->get();
-        
         Session::flash('my_status', '退勤が完了しました');
-        return view('general.report', ['timestamp' => $timestamp, 'reports' => $reports, 'works' => $works ]);
+        return redirect('general/report');
     }
 }

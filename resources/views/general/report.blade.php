@@ -110,15 +110,7 @@
                         </tbody>
                     </table>
                     <div class="pagination">
-                        @if ( $reports->hasPages() )
-                            {{ $reports->links() }}
-                        @else
-                            <div class="pager">
-                                <div class="prev">&lt;</div>
-                                <div class="current">1</div>
-                                <div class="next">&gt;</div>
-                            </div>
-                        @endif
+                        {{ $reports->links() }}
                     </div>
                 </div>
             </div>

@@ -39,11 +39,7 @@ class WorkController extends Controller
 
         $work->fill($form)->save();
       
-        //今までに作成した案件を取得
-        $user = Auth::user();
-        $works = Work::where('author_id', $user->id)->latest()->paginate(10);
-        
-        return view('admin.work', ['works' => $works]);
+        return redirect('admin/work');
     }
   
     public function edit(Request $request)
@@ -79,7 +75,7 @@ class WorkController extends Controller
     {
         $placements = Placement::where('work_id', $request->id)->get();
         $work = Work::find($request->id);
-        dd($request);
+        
         foreach ($placements as $p) {
             $p->delete();
         }

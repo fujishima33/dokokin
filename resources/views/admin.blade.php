@@ -36,11 +36,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="pager">
-                        <div class="prev">&lt;</div>
-                        <div class="current">1</div>
-                        <div class="next">&gt;</div>
-                    </div>
                 </div>
                 
                 <div class="border p-3">
