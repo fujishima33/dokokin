@@ -13,6 +13,35 @@
         <!-- Scripts -->
          {{-- Laravel標準Javascriptを読み込み --}}
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
+        
+         {{-- 時刻表示 --}}
+        <script>
+            function twoDigit(num) {
+                let ret;
+                if( num < 10 ) 
+                    ret = "0" + num; 
+                else 
+                    ret = num; 
+                return ret;
+            }
+            function showClock() {
+                let now = new Date();
+                let month = now.getMonth()+1;
+                let date = now.getDate();
+                let day = now.getDay();
+                let nowHour = twoDigit( now.getHours() );
+                let nowMin  = twoDigit( now.getMinutes() );
+                let nowSec  = twoDigit( now.getSeconds() );
+                
+                let youbi = new Array("日","月","火","水","木","金","土");
+                let mdd = month + "月" + date + "日" + youbi[day] + "曜日";
+                document.getElementById("toda").innerHTML = mdd;
+                
+                let msg = nowHour + ":" + nowMin + ":" + nowSec;
+                document.getElementById("realtime").innerHTML = msg;
+            }
+            setInterval('showClock()',1000);
+        </script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">

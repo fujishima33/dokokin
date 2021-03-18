@@ -17,13 +17,15 @@
                         </div>
                         
                         <div class="row col-sm-12 col-md-8 mx-auto my-auto punch">
-                            <div  class="col-sm-12 col-xl-4 mx-auto">
+                            <div  class="col-sm-12 col-xl-6 m-auto p-0">
                                 <div class="time">
-                                    <p>00:00</p>
+                                    <p id="toda"></p>
+                                    <p id="realtime"></p>
+                                    
                                 </div>
                             </div>
                             
-                            <div class="col-sm-12 col-xl-8 mx-auto">
+                            <div class="col-sm-12 col-xl-6 mx-auto p-0">
                                 <div class='d-inline-block punch-button'>
                                     <form method="POST" action="{{ route('timestamp/punchin') }}">
                                         @csrf

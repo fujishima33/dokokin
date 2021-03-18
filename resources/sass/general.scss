@@ -6,9 +6,16 @@
 .gen-avatar img {
     width: 100%;
     max-width: 150px;
+    object-fit: contain;
 }
 h5 {
     margin: 10px 0 20px;
+}
+#toda {
+    font-size: 18px;
+}
+#realtime {
+    font-size: 40px;
 }
 .punch {
     text-align: center;
@@ -23,11 +30,6 @@ h5 {
 .punch-newest {
     font-size: 16px;
 }
-.gen-report {
-    // table-layout: fixed;
-    // word-wrap: break-word;
-}
-
 
 // レスポンシブ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // 576px 以上のスタイル
@@ -36,9 +38,9 @@ h5 {
 }
 // 768px 以上のスタイル
 @media (min-width: 768px) {
-    .gen-avatar img {
-        min-width: 150px;
-    }
+    // .gen-avatar img {
+    //     min-width: 150px;
+    // }
     h5 {
         margin-bottom: 0;
     }
@@ -54,6 +56,9 @@ h5 {
 }
 // 1200px 以上のスタイル
 @media (min-width: 1200px) {
+    #realtime {
+        font-size: 50px;
+    }
     .calendar .badge {
         width: 80%;
         margin: 0 10%;

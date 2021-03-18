@@ -86,28 +86,25 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/focus.js":
-/*!*******************************!*\
-  !*** ./resources/js/focus.js ***!
-  \*******************************/
+/***/ "./resources/js/time.js":
+/*!******************************!*\
+  !*** ./resources/js/time.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 /* global $*/
-$(function () {
-  alert('sample');
-});
 
 /***/ }),
 
 /***/ 1:
-/*!*************************************!*\
-  !*** multi ./resources/js/focus.js ***!
-  \*************************************/
+/*!************************************!*\
+  !*** multi ./resources/js/time.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/ec2-user/environment/dokokin/resources/js/focus.js */"./resources/js/focus.js");
+module.exports = __webpack_require__(/*! /home/ec2-user/environment/dokokin/resources/js/time.js */"./resources/js/time.js");
 
 
 /***/ })
