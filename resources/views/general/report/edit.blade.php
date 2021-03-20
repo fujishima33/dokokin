@@ -18,7 +18,7 @@
             <div class="col-md-12 create-form">
                 <div class="card">
                     <div class="card-body">
-                        <form  method="POST" action="{{ action('General\ReportController@update') }}" enctype="multipart/form-data">
+                        <form  method="POST" action="{{ action('General\ReportController@update') }}" enctype="multipart/form-data" novalidate="novalidate">
                             @csrf
                             
                             @if (count($errors) > 0)
@@ -28,40 +28,34 @@
                                     @endforeach
                                 </ul>
                             @endif
-                            <div class="form-group row">
-                                <label for="date" class="col-md-4 col-form-label text-md-right">月日</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="date" value="{{ $report_form->punchIn }}">
-                                </div>
-                            </div>
                             
                             <div class="form-group row">
                                 <label for="punchIn" class="col-md-4 col-form-label text-md-right">出勤時間</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="punchIn" value="{{ $report_form->punchIn }}">
+                                    <input type="datetime-local" class="form-control" name="punchIn" value="{{ str_replace(" ", "T", $report_form->punchIn) }}">
                                 </div>
                             </div>
                             
                             <div class="form-group row">
                                 <label for="punchOut" class="col-md-4 col-form-label text-md-right">退勤時間</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="punchOut" value="{{ $report_form->punchOut }}">
+                                    <input type="datetime-local" class="form-control" name="punchOut" value="{{ str_replace(" ", "T", $report_form->punchOut) }}">
                                 </div>
                             </div>
                             
                             <div class="form-group row">
                                 <label for="work_id" class="col-md-4 col-form-label text-md-right">案件名</label>
                                 <div class="col-md-6">
-                                <select class="form-control" name="work_id" value="{{ $report_form->work_id }}">
-                                    @if($works->isEmpty())
-                                        <option value="">案件が未登録です</option>
-                                    @else
-                                        @foreach($works as $work)
-                                                <option value="{{ $work->id }}">{{ $work->work_title }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
+                                    <select class="form-control" name="work_id" value="{{ $report_form->work_id }}">
+                                        @if($works->isEmpty())
+                                            <option value="">案件が未登録です</option>
+                                        @else
+                                            @foreach($works as $work)
+                                                    <option value="{{ $work->id }}">{{ $work->work_title }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
                             </div>
                             
                             <div class="form-group row">
@@ -79,9 +73,9 @@
                                 </div>
                             </div>
                         </form>
-                
+                    </div>
+                </div>
             </div>
         </div>
-        
     </div>
 @endsection

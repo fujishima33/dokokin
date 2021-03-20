@@ -34,7 +34,7 @@
                 let nowSec  = twoDigit( now.getSeconds() );
                 
                 let youbi = new Array("日","月","火","水","木","金","土");
-                let mdd = month + "月" + date + "日" + youbi[day] + "曜日";
+                let mdd = month + "月" + date + "日 (" + youbi[day] + ")";
                 document.getElementById("toda").innerHTML = mdd;
                 
                 let msg = nowHour + ":" + nowMin + ":" + nowSec;

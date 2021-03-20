@@ -15,14 +15,14 @@
                             @if($timestamp == NULL)
                             出勤状況
                             @else
-                            {{ $timestamp->punchIn->format('m月d日 ') }}の出勤状況
+                            {{ $timestamp->punchIn->format('n月d日 ') }}の出勤状況
                             @endif
                         </h3>
                     </div>
                     
                     @if (session('my_status'))
                         <div class="container mt-2">
-                            <div class="alert alert-success">
+                            <div class="alert alert-success text-center">
                                 {{ session('my_status') }}
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 @if($timestamp == NULL)
                                     初回の打刻をして下さい
                                 @else
-                                    {{ $timestamp->punchIn->format('H:i:s') }}
+                                    {{ $timestamp->punchIn->format('G:i') }}
                                 @endif
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                 @elseif($timestamp->punchOut == NULL)
                                     未入力です
                                 @else
-                                    {{ $timestamp->punchOut->format('H:i:s') }}
+                                    {{ $timestamp->punchOut->format('G:i') }}
                                 @endif
                             </div>
                         </div>
@@ -76,13 +76,13 @@
                             @if ($reports != NULL)
                                 @foreach($reports as $report)
                                     <tr>
-                                        <th>{{ $report->punchIn->format('n月j日') }}</th>
-                                        <td>{{ $report->punchIn->format('H:i:s') }}</td>
+                                        <th>{{ $report->punchIn->format('n/j') }}</th>
+                                        <td>{{ $report->punchIn->format('G:i') }}</td>
                                         <td>
                                             @if($report->punchOut == null)
                                             未入力です
                                             @else
-                                            {{ $report->punchOut->format('H:i:s') }}
+                                            {{ $report->punchOut->format('G:i') }}
                                             @endif
                                         </td>
                                         <td>

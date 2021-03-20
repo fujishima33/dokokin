@@ -16,7 +16,8 @@
                             <h5>{{ $user->name }}</h5>
                         </div>
                         
-                        <div class="row col-sm-12 col-md-8 mx-auto my-auto punch">
+                        <div class="row col-sm-12 col-md-8 m-auto punch">
+                            
                             <div  class="col-sm-12 col-xl-6 m-auto p-0">
                                 <div class="time">
                                     <p id="toda"></p>
@@ -41,17 +42,19 @@
                                     </form>
                                 </div>
                                 <div>
-                                @if (session('error'))
-                                    <div class="container mt-2">
-                                      <div class="alert alert-danger">
-                                          {{ session('error') }}
-                                      </div>
-                                    </div>
-                                @endif
+                                    <a class="m-3" href="{{ action('General\ReportController@report') }}">日報を確認する</a>
                                 </div>
-                                <a class="m-3" href="{{ action('General\ReportController@report') }}">日報を確認する</a>
                             </div>
                         </div>
+                    </div>
+                    <div class="mx-auto w-100">
+                        @if (session('error'))
+                            <div class="container mt-2 mx-auto">
+                              <div class="alert alert-danger text-center">
+                                  {{ session('error') }}
+                              </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 
