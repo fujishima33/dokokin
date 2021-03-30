@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Rules\AlphaNumHalf;
 use App\User;
 use App\Placement;
 use App\Timestamp;
@@ -21,10 +22,10 @@ class StaffController extends Controller
     {
         // Varidationを行う
         $request->validate([
-            'name'       => 'required|string|max:255',
-            'email'      => 'required|string|max:255|unique:users|email',
-            'password'   => 'required|string|min:8|confirmed',
-            'image'      => 'mimes:jpeg,png,jpg'
+            'name'       => ['required', 'string', 'max:255'],
+            'email'      => ['required', 'string', 'max:255', 'unique:users', 'email'],
+            'password'   => ['required', 'min:8', 'confirmed', new AlphaNumHalf],
+            'image'      => ['mimes:jpeg,png,jpg']
         ]);
         
         $user = new User;
