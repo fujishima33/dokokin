@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Work;
+use App\Timestamp;
 use App\Placement;
 use Auth;
 
@@ -13,6 +14,7 @@ class GeneralController extends Controller
 {
     public function top()
     {
+        // カレンダー表示
         // 表示するユーザー
         $user = Auth::user();
         
@@ -111,13 +113,22 @@ class GeneralController extends Controller
             }
         }
         
+        // 打刻ボタン関連
+        $punch_today = date('Y-m-d');
+        $punch_latest = Timestamp::where('user_id', $user->id)->latest()->first();
+        $punch_latest_in = date('Y-m-d', strtotime($punch_latest->punchIn));
+        $punch_latest_out = date('Y-m-d', strtotime($punch_latest->punchOut));
+        
         return view('general', [
             'user' => $user,
             'prev' => $prev,
             'next' => $next,
             'html_title' => $html_title,
             'weeks' => $weeks,
-            'date' => $date
+            'date' => $date,
+            'punch_today' => $punch_today,
+            'punch_latest_in' => $punch_latest_in,
+            'punch_latest_out' => $punch_latest_out,
             ]);
     }
 

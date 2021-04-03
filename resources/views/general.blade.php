@@ -31,14 +31,22 @@
                                     <form method="POST" action="{{ route('timestamp/punchin') }}">
                                         @csrf
                                         @method('POST')
-                                        <button type="submit" class="btn btn-primary btn-lg m-3">出勤</button>
+                                        @if($punch_today == $punch_latest_in)
+                                            <button type="submit" class="btn btn-primary btn-lg m-3" disabled>出勤</button>
+                                        @else
+                                            <button type="submit" class="btn btn-primary btn-lg m-3">出勤</button>
+                                        @endif
                                     </form>
                                 </div>
                                 <div class='d-inline-block punch-button'>
                                     <form method="POST" action="{{ route('timestamp/punchout') }}">
                                         @csrf
                                         @method('POST')
-                                        <button type="submit" class="btn btn-danger btn-lg m-3">退勤</button>
+                                        @if($punch_today == $punch_latest_out)
+                                            <button type="submit" class="btn btn-danger btn-lg m-3" disabled>退勤</button>
+                                        @else
+                                            <button type="submit" class="btn btn-danger btn-lg m-3">退勤</button>
+                                        @endif
                                     </form>
                                 </div>
                                 <div>

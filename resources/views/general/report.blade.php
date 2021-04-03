@@ -15,7 +15,7 @@
                             @if($timestamp == NULL)
                             出勤状況
                             @else
-                            {{ $timestamp->punchIn->format('n月d日 ') }}の出勤状況
+                            {{ $timestamp->punchIn->format('n月j日 ') }}の出勤状況
                             @endif
                         </h3>
                     </div>
@@ -76,7 +76,7 @@
                             @if ($reports != NULL)
                                 @foreach($reports as $report)
                                     <tr>
-                                        <th>{{ $report->punchIn->format('n/j') }}</th>
+                                        <th>{{ $report->punchIn->format('n月j日') }}</th>
                                         <td>{{ $report->punchIn->format('G:i') }}</td>
                                         <td>
                                             @if($report->punchOut == null)
