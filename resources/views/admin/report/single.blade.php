@@ -53,7 +53,11 @@
                                             {{ $report->punchOut->format('H:i') }}
                                         @endif
                                     </td>
-                                    <td>{{ $report->work_id }}</td>
+                                    <td>
+                                        @if ($report->work_id != NULL)
+                                            {{ $works->where('id', $report->work_id)->first()->work_title }}
+                                        @endif
+                                    </td>
                                     <td>{{ $report->detail }}</td>
                                 </tr>
                             @endforeach

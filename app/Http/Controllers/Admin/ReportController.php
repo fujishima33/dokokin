@@ -32,7 +32,9 @@ class ReportController extends Controller
         if (empty($reports)) {
             abort(404);
         }
-        return view('admin.report.single', ['reports' => $reports, 'user' => $user]);
+        
+        $works = Work::where('author_id', $user->author_id)->get();
+        return view('admin.report.single', ['reports' => $reports, 'user' => $user, 'works' => $works]);
     }
     
     public function download(): StreamedResponse
