@@ -52,9 +52,8 @@ final class CsvDownloader
         $data = [];
         foreach ($timestamps as $timestamp) {
             $data[] = $this->toCsvFromTimestamp($timestamp);
-            // $work = Work::where('id', $timestamp->work_id)->first()->work_title;
-            // $data[4] = $work;
-            // array_push($data, "aaa");
+            $work = Work::where('id', $timestamp->work_id)->first()->work_title;
+            $data[4] = $work;
         }
         
         return $data;

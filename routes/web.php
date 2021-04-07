@@ -55,7 +55,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     // 単独表示
     Route::get('report/single', 'Admin\ReportController@single');
     // CSV出力
-    Route::get('report/single/download', 'Admin\ReportController@download');
+    Route::get('report/single/download', 'Admin\ReportController@download')->name('download.index');
     // 連絡事項---------------------------------------------------------------
     Route::get('info', 'AdminController@info');
     // 申請-------------------------------------------------------------------
