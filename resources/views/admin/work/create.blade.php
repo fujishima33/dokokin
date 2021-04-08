@@ -53,7 +53,7 @@
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-9 offset-md-3">
-                                    <input type="submit" class="btn btn-primary" value="作成">
+                                    <input type="submit" class="btn btn-primary" value="登録">
                                 </div>
                             </div>
                         </form>

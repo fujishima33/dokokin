@@ -11,7 +11,6 @@ use Hash;
 use Auth;
 use App\Services\CsvDownloader;
 use Symfony\Component\HttpFoundation\StreamedResponse;
-use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {

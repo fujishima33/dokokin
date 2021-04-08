@@ -26,7 +26,7 @@
                     <table class="table table-bordered profile">
                         <thead>
                             <tr>
-                                <th width="20%"></th>
+                                <th width="20%">アイコン画像</th>
                                 <th width="20%">氏名</th>
                                 <th width="30%">メールアドレス</th>
                                 <th width="20%">権限</th>

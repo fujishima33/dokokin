@@ -30,14 +30,14 @@
                             @endif
                             
                             <div class="form-group row">
-                                <label for="punchIn" class="col-md-4 col-form-label text-md-right">出勤時間</label>
+                                <label for="punchIn" class="col-md-4 col-form-label text-md-right">出勤時刻</label>
                                 <div class="col-md-6">
                                     <input type="datetime-local" class="form-control" name="punchIn" value="{{ str_replace(" ", "T", $report_form->punchIn) }}">
                                 </div>
                             </div>
                             
                             <div class="form-group row">
-                                <label for="punchOut" class="col-md-4 col-form-label text-md-right">退勤時間</label>
+                                <label for="punchOut" class="col-md-4 col-form-label text-md-right">退勤時刻</label>
                                 <div class="col-md-6">
                                     <input type="datetime-local" class="form-control" name="punchOut" value="{{ str_replace(" ", "T", $report_form->punchOut) }}">
                                 </div>
@@ -64,7 +64,7 @@
                             </div>
                             
                             <div class="form-group row">
-                                <label for="detail" class="col-md-4 col-form-label text-md-right">本文</label>
+                                <label for="detail" class="col-md-4 col-form-label text-md-right">業務内容</label>
                                 <div class="col-md-6">
                                     <textarea class="form-control" name="detail" rows="5">{{ $report_form->detail }}</textarea>
                                 </div>

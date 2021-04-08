@@ -20,8 +20,8 @@
                         <thead>
                             <tr>
                                 <th width="20%">氏名</th>
-                                <th width="30%">出勤時間</th>
-                                <th width="30%">退勤時間</th>
+                                <th width="30%">出勤時刻</th>
+                                <th width="30%">退勤時刻</th>
                                 <th width="20%"></th>
                             </tr>
                         </thead>
@@ -46,7 +46,7 @@
                                                 {{ $user->timestamp->sortByDesc('updated_at')->first()->punchOut->format('G:i') }}
                                             @endif
                                         </td>
-                                        <td><div><a class="link-ope" href="{{ action('Admin\ReportController@single', ['id' => $user->id]) }}">表示する</a></div></td>
+                                        <td><div><a class="link-ope" href="{{ action('Admin\ReportController@single', ['id' => $user->id]) }}">一覧を表示</a></div></td>
                                     </tr>
                                 @endforeach
                             @endif
