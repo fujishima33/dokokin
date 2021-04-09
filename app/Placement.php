@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Placement extends Model
 {
-    protected $fillable = ['user_id', 'work_id', 'regist_date'];
+    protected $fillable = ['author_id', 'user_id', 'work_id', 'regist_date'];
     
     public static $rules = array(
         'work_id' => 'required',

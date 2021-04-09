@@ -15,6 +15,7 @@ class CreatePlacementsTable extends Migration
     {
         Schema::create('placements', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('author_id')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('work_id')->unsigned();
             $table->dateTime('regist_date');

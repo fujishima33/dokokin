@@ -26,20 +26,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            @foreach($users as $user)
                                 <tr>
-                                    <th>a-1</th>
-                                    <td>つぎの案件</td>
+                                    <th>{{ $user->name }}</th>
+                                    @if($regist->where('user_id', $user->id)->first() == NULL)
+                                        <td>未登録</td>
+                                    @else
+                                        <td>{{ $works->where('id', $regist->where('user_id', $user->id)->first()->work_id)->first()->work_title }}</td>
+                                    @endif
                                 </tr>
-                                <tr>
-                                    <th>a-2</th>
-                                    <td>べつの案件</td>
-                                </tr>
-                                <tr>
-                                    <th>a-3</th>
-                                    <td>有給休暇</td>
-                                </tr>
-                            
+                            @endforeach
                         </tbody>
                     </table>
                     </div>
