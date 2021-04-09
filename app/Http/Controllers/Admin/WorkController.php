@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use App\Http\Controllers\Controller;
 use App\Work;
 use App\User;
@@ -19,7 +20,7 @@ class WorkController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $works = Work::where('author_id', $user->id)->latest()->get();
+        $works = Work::where('author_id', $user->id)->latest()->paginate(10);
         
         return view('admin.work', ['works' => $works]);
     }
@@ -40,8 +41,8 @@ class WorkController extends Controller
       
         //今までに作成した案件を取得
         $user = Auth::user();
-        $works = Work::where('author_id', $user->id)->latest()->get();
-      
+        $works = Work::where('author_id', $user->id)->latest()->paginate(10);
+        
         return view('admin.work', ['works' => $works]);
     }
   

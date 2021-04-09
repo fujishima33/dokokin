@@ -58,7 +58,7 @@
                 
                 <div class="border mb-3 p-3">
                     <div>
-                        <h3>出勤状況一覧</h3>
+                        <h3>日報一覧</h3>
                     </div>
                     
                     <table class="table table-bordered gen-report">
@@ -98,7 +98,6 @@
                                             @else
                                                 {{ \Str::limit($report->detail, 30) }}
                                             @endif
-                                            
                                         </td>
                                         <td>
                                             <div>
@@ -110,6 +109,17 @@
                             @endif
                         </tbody>
                     </table>
+                    <div class="pagination">
+                        @if ( $reports->hasPages() )
+                            {{ $reports->links() }}
+                        @else
+                            <div class="pager">
+                                <div class="prev">&lt;</div>
+                                <div class="current">1</div>
+                                <div class="next">&gt;</div>
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
