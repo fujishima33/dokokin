@@ -43,9 +43,21 @@
                                 <div class="col-md-9">
                                     <select class="form-control" name="status">
                                         <option value="入力なし"></option>
-                                        <option value="未着手">未着手</option>
-                                        <option value="進行中">進行中</option>
-                                        <option value="完了">完了</option>
+                                        @if($work_form->status == "未着手")
+                                            <option value="未着手" selected>未着手</option>
+                                        @else
+                                            <option value="未着手">未着手</option>
+                                        @endif
+                                        @if($work_form->status == "進行中")
+                                            <option value="進行中" selected>進行中</option>
+                                        @else
+                                            <option value="進行中">進行中</option>
+                                        @endif
+                                        @if($work_form->status == "完了")
+                                            <option value="完了" selected>完了</option>
+                                        @else
+                                            <option value="完了">完了</option>
+                                        @endif
                                     </select>
                                 </div>
                             </div>

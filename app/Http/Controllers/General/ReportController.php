@@ -21,6 +21,7 @@ class ReportController extends Controller
         // ログインしているユーザーの管理者が作成した案件を取得
         $author = Auth::user()->author_id;
         $works = Work::where('author_id', $author)->get();
+        
         return view('general.report', ['timestamp' => $timestamp, 'reports' => $reports, 'works' => $works ]);
     }
     

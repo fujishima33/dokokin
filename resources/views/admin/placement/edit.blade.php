@@ -47,8 +47,13 @@
                                         @if($works->isEmpty())
                                             <option value="">案件が未登録です</option>
                                         @else
+                                            <option value=""></option>
                                             @foreach($works as $work)
-                                                <option value="{{ $work->id }}">{{ $work->work_title }}</option>
+                                                @if($placement != NULL && $work->id == $placement->work_id)
+                                                    <option value="{{ $work->id }}" selected>{{ $work->work_title }}</option>
+                                                @else
+                                                    <option value="{{ $work->id }}">{{ $work->work_title }}</option>
+                                                @endif
                                             @endforeach
                                         @endif
                                     </select>
