@@ -37,7 +37,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    /**
+     * 社員登録の作成者（author_id）関連付け
+     * 1対多
+     */
     public function general_users() {
         return $this->hasMany(User::class, 'author_id');
+    }
+    
+    /**
+     * Timestamp関連付け
+     * 1対多
+     */
+    public function timestamp() {
+        return $this->hasMany(Timestamp::class);
     }
 }

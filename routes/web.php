@@ -24,6 +24,9 @@ Route::group(['prefix' => 'general', 'middleware' => ['auth', 'can:user-higher']
     // 一般ユーザトップページ
     Route::get('/', 'GeneralController@top');
     
+    // 打刻
+    Route::post('/punchin', 'TimestampsController@punchIn')->name('timestamp/punchin');
+    Route::post('/punchout', 'TimestampsController@punchOut')->name('timestamp/punchout');
     // 日報
     Route::get('report', 'GeneralController@report');
     Route::get('report/edit', 'General\ReportController@edit');
