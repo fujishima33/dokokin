@@ -46,9 +46,25 @@
                             
                             <div class="form-group row">
                                 <label for="role" class="col-md-4 col-form-label text-md-right">権限</label>
-    
+                                
                                 <div class="col-md-6">
                                     <input type="radio" name="role" value="10" checked>一般ユーザー
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="image" class="col-md-4 col-form-label text-md-right">プロフィール画像</label>
+                                
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control-file" name="image">
+                                    <div class="form-text text-info">
+                                        設定中: {{ $user_form->image_path }}
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
     
@@ -60,7 +76,7 @@
                                         更新
                                     </button>
                                     <div>
-                                        <a href="{{ action('Admin\StaffController@delete', [ 'id' => $user_form->id]) }}">削除</a>
+                                        <a href="{{ action('Admin\StaffController@delete', [ 'id' => $user_form->id]) }}">社員情報を削除</a>
                                     </div>
                                 </div>
                             </div>

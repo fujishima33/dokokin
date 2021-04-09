@@ -153,7 +153,8 @@ return [
         'role'     => '権限',
         'work_id'  => '案件名',
         'work_title' => '案件名',
-        'body'       => '内容'
+        'body'       => '内容',
+        'image'      => '画像'
     ],
 
 ];

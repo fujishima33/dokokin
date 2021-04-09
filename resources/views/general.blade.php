@@ -15,6 +15,11 @@
                 
                 <div class="border mb-3 p-3">
                     <div class="">
+                        <h3>{{ $user->name }}</h3>
+                        <img src="{{ asset('storage/image/' . $user->image_path) }}">
+                    </div>
+                    
+                    <div class="">
                         <h3>出勤状況</h3>
                     </div>
                     <div class='d-inline-block'>

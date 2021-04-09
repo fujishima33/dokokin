@@ -64,7 +64,6 @@ class WorkController extends Controller
         
         //Work Modelからデータを取得
         $work = Work::find($request->id);
-        //   dd($work);
         // 送信されてきたフォームデータを格納する
         $work_form = $request->all();
         unset($work_form['_token']);

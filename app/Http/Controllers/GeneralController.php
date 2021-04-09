@@ -13,6 +13,9 @@ class GeneralController extends Controller
 {
     public function top()
     {
+        // 表示するユーザー
+        $user = Auth::user();
+        
         // 前月・次月リンクが押された場合は、GETパラメーターから年月を取得
         if (isset($_GET['ym'])) {
             $ym = $_GET['ym'];
@@ -107,8 +110,8 @@ class GeneralController extends Controller
                 $week = '';
             }
         }
-        // dd($weeks);
-        return view('general', ['prev' => $prev, 'next' => $next, 'html_title' => $html_title, 'weeks' => $weeks, 'date' => $date ]);
+        
+        return view('general', ['user' => $user, 'prev' => $prev, 'next' => $next, 'html_title' => $html_title, 'weeks' => $weeks, 'date' => $date ]);
     }
 
     public function info()
