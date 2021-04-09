@@ -48,7 +48,7 @@
                                             <option value="">案件が未登録です</option>
                                         @else
                                             @foreach($works as $work)
-                                                    <option value="{{ $work->id }}">{{ $work->work_title }}</option>
+                                                <option value="{{ $work->id }}">{{ $work->work_title }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -60,7 +60,12 @@
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-9 offset-md-3">
-                                    <input type="submit" class="btn btn-primary" value="更新">
+                                    <input type="submit" class="btn btn-primary" value="登録">
+                                    @if($placement)
+                                    <button type="submit" class="btn btn-danger ml-4">
+                                        <a href="{{ action('Admin\PlacementController@delete', ['id' => $user->id, 'timestamp' => $timestamp]) }}" class="delete">削除</a>
+                                    </button>
+                                    @endif
                                 </div>
                             </div>
                         </form>

@@ -11,39 +11,44 @@
             <div class="col-md-12 mx-auto container-all">
                 <div class="border mb-3 p-3">
                     <div class="row">
-                        <div class="col-sm-12 col-md-5 mx-auto gen-avatar">
+                        <div class="col-sm-12 col-md-4 mx-auto gen-avatar">
                             <img src="{{ asset('storage/image/' . $user->image_path) }}">
                             <h5>{{ $user->name }}</h5>
                         </div>
                         
-                        <div class="col-sm-12 col-md-7 punch">
-                            <div class="time">
-                                <p>00:00</p>
-                            </div>
-                            <div class='d-inline-block punch-button'>
-                                <form method="POST" action="{{ route('timestamp/punchin') }}">
-                                    @csrf
-                                    @method('POST')
-                                    <button type="submit" class="btn btn-primary btn-lg m-3">出勤</button>
-                                </form>
-                            </div>
-                            <div class='d-inline-block punch-button'>
-                                <form method="POST" action="{{ route('timestamp/punchout') }}">
-                                    @csrf
-                                    @method('POST')
-                                    <button type="submit" class="btn btn-danger btn-lg m-3">退勤</button>
-                                </form>
-                            </div>
-                            <div>
-                            @if (session('error'))
-                                <div class="container mt-2">
-                                  <div class="alert alert-danger">
-                                      {{ session('error') }}
-                                  </div>
+                        <div class="row col-sm-12 col-md-8 mx-auto my-auto punch">
+                            <div  class="col-sm-12 col-xl-4 mx-auto">
+                                <div class="time">
+                                    <p>00:00</p>
                                 </div>
-                            @endif
                             </div>
-                            <a class="m-3" href="{{ action('General\ReportController@report') }}">日報を確認する</a>
+                            
+                            <div class="col-sm-12 col-xl-8 mx-auto">
+                                <div class='d-inline-block punch-button'>
+                                    <form method="POST" action="{{ route('timestamp/punchin') }}">
+                                        @csrf
+                                        @method('POST')
+                                        <button type="submit" class="btn btn-primary btn-lg m-3">出勤</button>
+                                    </form>
+                                </div>
+                                <div class='d-inline-block punch-button'>
+                                    <form method="POST" action="{{ route('timestamp/punchout') }}">
+                                        @csrf
+                                        @method('POST')
+                                        <button type="submit" class="btn btn-danger btn-lg m-3">退勤</button>
+                                    </form>
+                                </div>
+                                <div>
+                                @if (session('error'))
+                                    <div class="container mt-2">
+                                      <div class="alert alert-danger">
+                                          {{ session('error') }}
+                                      </div>
+                                    </div>
+                                @endif
+                                </div>
+                                <a class="m-3" href="{{ action('General\ReportController@report') }}">日報を確認する</a>
+                            </div>
                         </div>
                     </div>
                 </div>

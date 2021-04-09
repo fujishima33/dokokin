@@ -78,14 +78,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     Route::get('work/edit', 'Admin\WorkController@edit');
     Route::post('work/edit', 'Admin\WorkController@update');
     Route::get('work/delete', 'Admin\WorkController@delete');
-    
-    
     // 人員配置---------------------------------------------------------------
     Route::get('placement', 'Admin\PlacementController@index');
     Route::get('placement/single', 'Admin\PlacementController@single');
+    // 登録
     Route::get('placement/edit', 'Admin\PlacementController@edit');
     Route::post('placement/single', 'Admin\PlacementController@regist');
-    
+    // 削除
+    Route::get('placement/delete', 'Admin\PlacementController@delete');
     // 保留
     // Route::get('placement/create', 'Admin\PlacementController@create');
 });

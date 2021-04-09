@@ -79,7 +79,7 @@ class WorkController extends Controller
     {
         $placements = Placement::where('work_id', $request->id)->get();
         $work = Work::find($request->id);
-        
+        dd($request);
         foreach ($placements as $p) {
             $p->delete();
         }
