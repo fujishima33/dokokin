@@ -42,7 +42,6 @@ Route::group(['prefix' => 'general', 'middleware' => ['auth', 'can:user-higher']
     // 案件-----------------------------------------------------------------
     // 一覧
     Route::get('work', 'General\WorkController@index');
-    
 });
 
 // 管理者以上
@@ -82,13 +81,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     
     
     // 人員配置---------------------------------------------------------------
-    Route::get('placement', 'AdminController@placement');
-    Route::get('placement/staff', 'Admin\PlacementController@staff');
-    Route::get('placement/work', 'Admin\PlacementController@work');
+    Route::get('placement', 'Admin\PlacementController@index');
+    Route::get('placement/single', 'Admin\PlacementController@single');
+    Route::get('placement/edit', 'Admin\PlacementController@edit');
     
+    // 保留
+    // Route::get('placement/create', 'Admin\PlacementController@create');
 });
 
 // システム管理者のみ
     Route::group(['middleware' => ['auth', 'can:system-only']], function () {
-    
     });

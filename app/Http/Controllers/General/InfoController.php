@@ -7,9 +7,8 @@ use App\Http\Controllers\Controller;
 
 class InfoController extends Controller
 {
-  public function edit()
-  {
-      return view('general.info.edit');
-  }
-  
+    public function edit()
+    {
+        return view('general.info.edit');
+    }
 }

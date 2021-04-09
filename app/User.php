@@ -41,7 +41,8 @@ class User extends Authenticatable
      * 社員登録の作成者（author_id）関連付け
      * 1対多
      */
-    public function general_users() {
+    public function general_users()
+    {
         return $this->hasMany(User::class, 'author_id');
     }
     
@@ -49,7 +50,8 @@ class User extends Authenticatable
      * Timestamp関連付け
      * 1対多
      */
-    public function timestamp() {
+    public function timestamp()
+    {
         return $this->hasMany('App\Timestamp');
     }
 }

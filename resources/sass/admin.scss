@@ -58,6 +58,21 @@ body {
     }
     td {
         height: 100px;
+        position: relative;
+        a {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          p {
+            margin: 4px auto;
+            text-align: center;
+          }
+        }
+        a:hover {
+          background-color: #FFFFCC;
+        }
     }
     .today {
         background: skyblue;

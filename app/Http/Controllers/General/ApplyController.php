@@ -7,9 +7,8 @@ use App\Http\Controllers\Controller;
 
 class ApplyController extends Controller
 {
-  public function edit()
-  {
-      return view('general.apply.edit');
-  }
-  
+    public function edit()
+    {
+        return view('general.apply.edit');
+    }
 }

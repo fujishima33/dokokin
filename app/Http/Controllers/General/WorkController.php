@@ -10,11 +10,11 @@ use Auth;
 
 class WorkController extends Controller
 {
-  public function index()
-  {
-      $user = Auth::user();
-      $works = Work::where('author_id', $user->author_id)->latest()->get();
+    public function index()
+    {
+        $user = Auth::user();
+        $works = Work::where('author_id', $user->author_id)->latest()->get();
       
-      return view('general.work', ['works' => $works]);
-  }
+        return view('general.work', ['works' => $works]);
+    }
 }
