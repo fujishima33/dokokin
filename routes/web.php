@@ -25,11 +25,13 @@ Route::group(['prefix' => 'general', 'middleware' => ['auth', 'can:user-higher']
     Route::get('/', 'GeneralController@top');
     
     // 打刻
-    Route::post('/punchin', 'TimestampsController@punchIn')->name('timestamp/punchin');
-    Route::post('/punchout', 'TimestampsController@punchOut')->name('timestamp/punchout');
+    Route::post('/', 'TimestampsController@punchIn')->name('timestamp/punchin');
+    Route::post('report', 'TimestampsController@punchOut')->name('timestamp/punchout');
     // 日報
-    Route::get('report', 'TimestampsController@report');
+    Route::get('report', 'General\ReportController@report');
+    // 日報編集
     Route::get('report/edit', 'General\ReportController@edit');
+    Route::post('report/edit', 'General\ReportController@update');
     // 連絡事項
     Route::get('info', 'GeneralController@info');
     Route::get('info/edit', 'General\InfoController@edit');

@@ -81,7 +81,7 @@
                             <a href="{{ action('GeneralController@top') }}">トップ</a>
                         </div>
                         <div class="col-md-10 px-0 h5">
-                            <a href="{{ action('TimestampsController@report') }}">日報</a>
+                            <a href="{{ action('General\ReportController@report') }}">日報</a>
                         </div>
                         <div class="col-md-10 px-0 h5">
                             <a href="{{ action('GeneralController@info') }}">連絡事項</a>
