@@ -9,21 +9,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mx-auto">
-                <h2>社員新規登録</h2>
+                <h3>社員新規登録</h3>
             </div>
         </div>
         
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-12 create-form">
                 <div class="card">
-                    <div class="card-header">アカウント登録</div>
                     <div class="card-body">
                         <form method="POST" action="{{ action('Admin\StaffController@create') }}" enctype="multipart/form-data">
                             @csrf
                             
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">氏名</label>
-    
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                     @if ($errors->has('name'))

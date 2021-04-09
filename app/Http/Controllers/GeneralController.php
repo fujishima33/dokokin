@@ -65,9 +65,9 @@ class GeneralController extends Controller
             $date = $ym . '-' . $day;
             if ($today == $date) {
                 // 今日の日付の場合は、class="today"をつける
-                $week .= '<td class="today"><p>';
+                $week .= '<td class="today"><a><p>';
             } else {
-                $week .= '<td><p>';
+                $week .= '<td><a><p>';
             }
             $week .= $day . '</p><div>';
             
@@ -89,11 +89,11 @@ class GeneralController extends Controller
                 '';
             } else {
                 foreach ($work_list as $job) {
-                    $week .= '<span class="badge badge-warning ml-2">' . $job . '</span>';
+                    $week .= '<span class="badge badge-warning">' . $job . '</span>';
                 }
             }
             // タグを閉じる
-            $week .= '</div></td>';
+            $week .= '</div></a></td>';
             
             // 週終わり、または、月終わりの場合
             if ($youbi % 7 == 6 || $day == $day_count) {

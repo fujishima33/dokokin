@@ -1,42 +1,114 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #eee;
+  background-color: #fff;
   color: #000;
+  font-family: "M PLUS 1p", sans-serif;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+thead th {
+  background-color: #eee;
+}
+
+button a {
+  color: #fff;
+}
+
+button a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 .navbar-laravel {
+  position: fixed;
+  width: 100%;
   background-color: #eee;
   box-shadow: 0 2px 4px rgba(255, 255, 255, 0.04);
+  z-index: 10;
 }
 
 .navbar-brand {
   color: #000 !important;
+  font-size: 24px;
+  font-weight: 700;
+  margin-right: 40px;
 }
 
 .nav-link {
   color: #000 !important;
 }
 
-.table-dark {
+.navbar-toggler {
+  border-color: black !important;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.link {
+  margin: auto;
+  padding-right: 20px;
+  font-size: 16px;
+}
+
+.link a {
+  color: #888;
+}
+
+.link a:hover {
   color: #000;
 }
 
-.list-group-item {
-  border-color: #000;
+.active {
+  color: #f00;
+}
+
+.active a:hover {
+  color: #c00;
+}
+
+main {
+  background-color: #fff;
+  padding-top: 64px;
+  z-index: 1;
+}
+
+.main-all {
+  margin: 0;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.left-col,
+.right-col {
+  background-color: #fff;
+}
+
+.left-col {
+  margin-right: 20px;
+}
+
+.container-all {
+  padding: 0;
+}
+
+thead {
   background-color: #eee;
 }
 
-.login-box {
-  background-color: rgba(238, 238, 238, 0);
-}
-
-.login-header {
-  background-color: rgba(238, 238, 238, 0.25);
-}
-
-.login-body {
-  background-color: rgba(238, 238, 238, 0.25);
+thead th {
+  font-weight: 500;
 }
 
 .calendar {
@@ -44,17 +116,22 @@ body {
 }
 
 .calendar h3 {
+  font-size: 16px;
   margin-bottom: 30px;
 }
 
+.calendar h4 {
+  font-size: 18px;
+}
+
 .calendar th {
-  height: 30px;
   text-align: center;
 }
 
 .calendar td {
   height: 100px;
   position: relative;
+  overflow: hidden;
 }
 
 .calendar td a {
@@ -63,6 +140,8 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
+  color: #000;
+  text-decoration: none;
 }
 
 .calendar td a p {
@@ -74,17 +153,121 @@ body {
   background-color: #FFFFCC;
 }
 
-.calendar .today {
-  background: skyblue;
+.calendar .table th,
+.calendar .table td {
+  padding: 0;
+}
+
+.calendar .today p {
+  color: #fff;
+  background-color: #1967D2;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 23px;
 }
 
 .calendar th:nth-of-type(1),
 .calendar td:nth-of-type(1) {
   color: red;
+  background-color: #ffe6ea;
 }
 
 .calendar th:nth-of-type(7),
 .calendar td:nth-of-type(7) {
   color: blue;
+  background-color: #c8e7fa;
+}
+
+.calendar .badge {
+  width: 80%;
+  margin: 0 10%;
+  overflow: hidden;
+}
+
+.staff-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.staff-info h3 {
+  margin: 0;
+}
+
+.staff-info-right a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.profile {
+  white-space: nowrap;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+}
+
+.avatar {
+  text-align: center;
+}
+
+.card-body {
+  border: 0px none;
+}
+
+.work-index-column {
+  height: 120px;
+  overflow: hidden;
+}
+
+.pla-index-column {
+  height: 40px;
+  overflow: hidden;
+}
+
+@media (min-width: 576px) {
+  .calendar .badge {
+    width: 80%;
+    margin: 0 10%;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .work-index-column {
+    height: 80px;
+  }
+
+  .pla-index-column {
+    height: 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar-brand {
+    margin-right: 80px;
+  }
+
+  .link {
+    padding-right: 40px;
+  }
+
+  .calendar .badge {
+    width: 40%;
+    margin: 0 5%;
+  }
+
+  .work-index-column {
+    height: 40px;
+  }
 }
 

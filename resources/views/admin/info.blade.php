@@ -8,8 +8,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mx-auto">
-                <h2>連絡事項</h2>
+            <div class="col-md-12 mx-auto p-0">
+                <h3>連絡事項一覧</h3>
             </div>
         </div>
         

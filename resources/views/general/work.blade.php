@@ -1,22 +1,24 @@
-{{-- layouts/admin.blade.phpを読み込む --}}
+{{-- layouts/general.blade.phpを読み込む --}}
 @extends('layouts.general')
 
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-@section('title', '案件情報（一般）')
+{{-- general.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+@section('title', '案件一覧')
 
-{{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+{{-- general.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mx-auto">
-                <h2>案件情報(一般)</h2>
+            <div class="col-md-12 mx-auto p-0 mb-1 staff-info">
+                <div>
+                    <h3>案件情報(一般)</h3>
+                </div>
             </div>
         </div>
         
         <div class="row">
-            <div class="list-news col-md-12 mx-auto">
+            <div class="col-md-12 mx-auto">
                 <div class="row">
-                    <table class="table table-hover">
+                    <table class="table table-bordered work-index">
                         <thead>
                             <tr>
                                 <th width="20%">案件名</th>
@@ -27,9 +29,9 @@
                         <tbody>
                             @foreach($works as $work)
                                 <tr>
-                                    <th>{{ $work->work_title }}</th>
-                                    <td>{{ $work->body }}</td>
-                                    <td>{{ $work->status }}</td>
+                                    <th><div class="work-index-column">{{ $work->work_title }}</div></th>
+                                    <td><div class="work-index-column">{{ $work->body }}</div></td>
+                                    <td><div class="work-index-column">{{ $work->status }}</div></td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -1,0 +1,66 @@
+// 全体 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+body {
+    background-color: #eee;
+}
+
+// nav ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.navbar a {
+    color: #000;
+}
+.navbar-brand {
+    font-size: 24px;
+    font-weight: 700;
+}
+.navbar-toggler{
+border-color: rgba(0, 0, 0,1);
+}
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+// main ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.back {
+    background-color: #eee;
+    background-image: url(storage/background/top.jpg);
+    // 繰り返し表示しない
+    background-repeat: no-repeat;
+    // 表示位置
+    background-position: 50% 75%;
+    // コンテンツの高さが画像の高さより大きい時、動かないように固定
+    // background-attachment: fixed;
+    // 表示するコンテナの大きさに基づいて、背景画像を調整
+    // background-size: cover;
+}
+
+.left {
+    text-align: center;
+    text-shadow: 1px 0 2px #fff;
+    h1 {
+        font-weight: 700;
+    }
+    p {
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+.new-account {
+    background-color: #237dc7;
+    margin: 4px auto 40px;
+    a {
+        color: #fff;
+        text-decoration-line: none;
+    }
+    
+.right {
+    color: #fff;
+    .login-body {
+        text-align: center;
+    }
+    .card-header {
+        font-size: 100px;
+        background-color: rgba(0, 0, 0, 0) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0) !important;
+    }
+}
+
+}

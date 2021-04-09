@@ -87,7 +87,7 @@ class AdminController extends Controller
                 '';
             } else {
                 foreach ($work_list as $job) {
-                    $week .= '<span class="badge badge-warning ml-2">' . $job . '</span>';
+                    $week .= '<span class="badge badge-warning">' . $job . '</span>';
                 }
             }
             // タグを閉じる

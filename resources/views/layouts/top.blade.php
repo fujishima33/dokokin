@@ -22,12 +22,12 @@
         {{-- Laravel標準CSSを読み込み --}}
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         {{-- このファイル用のCSSを読み込み --}}
-        <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/top.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
             {{-- 画面上部ナビゲーションバー。 --}}
-            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
+            <nav class="navbar navbar-expand-md navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
@@ -74,7 +74,7 @@
             </nav>
             {{-- ここまでナビゲーションバー --}}
 
-            <main class="py-4">
+            <main class="back py-5">
                 @yield('content')
             </main>
         </div>

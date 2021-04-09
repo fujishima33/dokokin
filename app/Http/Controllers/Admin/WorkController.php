@@ -20,7 +20,7 @@ class WorkController extends Controller
     {
         $user = Auth::user();
         $works = Work::where('author_id', $user->id)->latest()->get();
-      
+        
         return view('admin.work', ['works' => $works]);
     }
   
@@ -48,6 +48,7 @@ class WorkController extends Controller
     public function edit(Request $request)
     {
         $work = Work::find($request->id);
+        
         if (empty($work)) {
             abort(404);
         }

@@ -1,0 +1,67 @@
+body {
+  background-color: #eee;
+}
+
+.navbar a {
+  color: #000;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.navbar-toggler {
+  border-color: black;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.back {
+  background-color: #eee;
+  background-image: url(/images/top.jpg?4074260ee7f8b413cd0befe1a45235bf);
+  background-repeat: no-repeat;
+  background-position: 50% 75%;
+}
+
+.left {
+  text-align: center;
+  text-shadow: 1px 0 2px #fff;
+}
+
+.left h1 {
+  font-weight: 700;
+}
+
+.left p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.new-account {
+  background-color: #237dc7;
+  margin: 4px auto 40px;
+}
+
+.new-account a {
+  color: #fff;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+
+.new-account .right {
+  color: #fff;
+}
+
+.new-account .right .login-body {
+  text-align: center;
+}
+
+.new-account .right .card-header {
+  font-size: 100px;
+  background-color: rgba(0, 0, 0, 0) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0) !important;
+}
+

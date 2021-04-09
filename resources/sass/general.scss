@@ -1,0 +1,62 @@
+// general（一般ユーザ）ページ
+.gen-avatar {
+  text-align: center;
+}
+
+.gen-avatar img {
+  width: 100%;
+  max-width: 150px;
+}
+h5 {
+  margin: 10px 0 20px;
+}
+.punch {
+  text-align: center;
+}
+.time p {
+  font-size: 40px;
+  text-align: center;
+  margin: 0;
+}
+
+// general/report（日報一覧）ページ
+.punch-newest {
+  font-size: 16px;
+}
+.gen-report {
+  // table-layout: fixed;
+  // word-wrap: break-word;
+}
+
+
+// レスポンシブ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// 576px 以上のスタイル
+@media (min-width: 576px) {
+  
+}
+// 768px 以上のスタイル
+@media (min-width: 768px) {
+  .gen-avatar img {
+    min-width: 150px;
+  }
+  h5 {
+    margin-bottom: 0;
+  }
+  
+}
+// 992px 以上のスタイル
+
+@media (min-width: 992px) {
+  .time p {
+    font-size: 50px;
+  }
+  
+}
+// 1200px 以上のスタイル
+@media (min-width: 1200px) {
+  .calendar .badge {
+    width: 80%;
+    margin: 0 10%;
+  }
+  
+}
