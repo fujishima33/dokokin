@@ -68,7 +68,7 @@
                                     <input type="submit" class="btn btn-primary" value="登録">
                                     @if($placement)
                                     <button type="submit" class="btn btn-danger ml-4">
-                                        <a href="{{ action('Admin\PlacementController@delete', ['id' => $user->id, 'timestamp' => $timestamp]) }}" class="delete">削除</a>
+                                        <a href="{{ action('Admin\PlacementController@delete', ['id' => $user->id, 'timestamp' => $timestamp]) }}" class="delete">予定を削除</a>
                                     </button>
                                     @endif
                                 </div>

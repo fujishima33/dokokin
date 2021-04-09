@@ -32,7 +32,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="login-box card">
-                            <div class="login-header card-header mx-auto">ログイン</div>
+                            <div class="login-header card-header mx-auto" id="li">ログイン</div>
         
                             <div class="login-body card-body">
                                 <form method="POST" action="{{ route('login') }}">

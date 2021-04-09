@@ -30,7 +30,7 @@
                     
                     <div class="row">
                         <div class="col-md-8 offset-md-1 punch-newest">
-                            <div class="m-2 pl-4 d-inline-block">出勤時間</div>
+                            <div class="m-2 pl-4 d-inline-block">出勤時刻</div>
                             <div class="m-2 pl-4 d-inline-block">
                                 @if($timestamp == NULL)
                                     初回の打刻をして下さい
@@ -42,7 +42,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8 offset-md-1 punch-newest">
-                            <div class="m-2 pl-4 d-inline-block">退勤時間</div>
+                            <div class="m-2 pl-4 d-inline-block">退勤時刻</div>
                             <div class="m-2 pl-4 d-inline-block">
                                 @if($timestamp == NULL)
                                     初回の打刻をして下さい

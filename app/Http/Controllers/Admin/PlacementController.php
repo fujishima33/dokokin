@@ -164,7 +164,7 @@ class PlacementController extends Controller
         $timestamp = $request->timestamp;
         $time = date('Y-m-d 00:00:00', $timestamp);
         $placement = Placement::where('user_id', $request->id)->where('regist_date', $time)->first();
-        // dd($placement->id);
+        
         return view('admin.placement.edit', [
             'timestamp' => $timestamp,
             'ymd' => $ymd,

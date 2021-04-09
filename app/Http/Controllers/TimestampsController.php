@@ -18,12 +18,10 @@ class TimestampsController extends Controller
         
         // 打刻は1日一回
         $oldTimestamp = Timestamp::where('user_id', $user->id)->latest()->first();
-        // dd($oldTimestamp);
+        
         if ($oldTimestamp) {
             $oldTimestampPunchIn = new Carbon($oldTimestamp->punchIn);
-            // dd($oldTimestampPunchIn);
             $oldTimestampDay = $oldTimestampPunchIn->startOfDay();
-        // dd($oldTimestampDay);
         } else {
             $timestamp = Timestamp::create([
                 'user_id' => $user->id,
