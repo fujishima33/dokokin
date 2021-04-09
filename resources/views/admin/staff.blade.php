@@ -26,7 +26,7 @@
                             <tr>
                                 <th width="20%">氏名</th>
                                 <th width="30%">メールアドレス</th>
-                                <th width="20%">権限<br> 管理者は5<br> 一般ユーザは10</th>
+                                <th width="20%">権限</th>
                                 <th width="10%"></th>
                             </tr>
                         </thead>
@@ -35,7 +35,11 @@
                                 <tr>
                                     <th>{{ $user->name }}</th>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->role }}</td>
+                                    @if($user->role == 5)
+                                        <td>管理者</td>
+                                    @elseif($user->role == 10)
+                                        <td>一般ユーザー</td>
+                                    @endif
                                     <td><div><a href="{{ action('Admin\StaffController@edit', ['id' => $user->id]) }}">編集</a></div></td>
                                 </tr>
                             @endforeach

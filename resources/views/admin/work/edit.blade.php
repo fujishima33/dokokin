@@ -42,7 +42,12 @@
                             <div class="form-group row">
                                 <label class="col-md-2">進行状況</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" name="status" value="{{ $work_form->status }}">
+                                    <select class="form-control" name="status">
+                                        <option value="入力なし"></option>
+                                        <option value="未着手">未着手</option>
+                                        <option value="進行中">進行中</option>
+                                        <option value="完了">完了</option>
+                                    </select>
                                 </div>
                             </div>
                             <input type="hidden" name="id" value="{{ $work_form->id }}">

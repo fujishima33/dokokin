@@ -59,6 +59,7 @@ class PlacementController extends Controller
         // 例）１日が水曜日だった場合、日曜日から火曜日の３つ分の空セルを追加する
         $week .= str_repeat('<td></td>', $youbi);
         
+        
         for ($day = 1; $day <= $day_count; $day++, $youbi++) {
             $date = $ym . '-' . $day;
             
@@ -124,8 +125,7 @@ class PlacementController extends Controller
         // ユーザーが属する管理アカウントの案件情報を取得
         $author = Auth::user()->id;
         $works = Work::where('author_id', $author)->get();
-        // $a = Work::where('author_id', $author)->get()->first()->work_title;
-        // dd($a);
+        
         return view('admin.placement.edit', ['timestamp' => $timestamp, 'ymd' => $ymd, 'user' => $user, 'works' => $works]);
     }
     
@@ -179,6 +179,7 @@ class PlacementController extends Controller
         
         $regist = Placement::where('regist_date', $date)->get();
         $work = Work::get();
+        
         return view('admin.placement.single', ['timestamp' => $timestamp, 'md' => $md, 'users' => $users, 'regist' => $regist, 'work' => $work]);
     }
     

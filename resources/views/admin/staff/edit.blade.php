@@ -49,40 +49,12 @@
                                     @enderror
                                 </div>
                             </div>
-    
-                            <!--<div class="form-group row">-->
-                            <!--    <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>-->
-    
-                            <!--    <div class="col-md-6">-->
-                            <!--        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ $user_form->password }}" required autocomplete="new-password">-->
-    
-                            <!--        @error('password')-->
-                            <!--            <span class="invalid-feedback" role="alert">-->
-                            <!--                <strong>{{ $message }}</strong>-->
-                            <!--            </span>-->
-                            <!--        @enderror-->
-                            <!--    </div>-->
-                            <!--</div>-->
-    
-                            <!--<div class="form-group row">-->
-                            <!--    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">パスワードの確認</label>-->
-    
-                            <!--    <div class="col-md-6">-->
-                            <!--        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" value="{{ $user_form->password_confirmation }}" required autocomplete="new-password">-->
-                            <!--    </div>-->
-                            <!--</div>-->
                             
                             <div class="form-group row">
                                 <label for="role" class="col-md-4 col-form-label text-md-right">権限</label>
     
                                 <div class="col-md-6">
-                                    <input id="role" type="number" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ $user_form->role }}" placeholder="管理者は5、一般ユーザは10を入力" required autocomplete="role">
-    
-                                    @error('role')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <input type="radio" name="role" value="10" checked>一般ユーザー
                                 </div>
                             </div>
     
