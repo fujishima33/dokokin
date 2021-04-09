@@ -39,6 +39,9 @@ Route::group(['prefix' => 'general', 'middleware' => ['auth', 'can:user-higher']
     // 申請-----------------------------------------------------------------
     Route::get('apply', 'GeneralController@apply');
     Route::get('apply/edit', 'General\ApplyController@edit');
+    // 案件-----------------------------------------------------------------
+    // 一覧
+    Route::get('work', 'General\WorkController@index');
     
 });
 

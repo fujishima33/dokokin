@@ -89,6 +89,9 @@
                         <div class="col-md-10 px-0 h5">
                             <a href="{{ action('GeneralController@apply') }}">休暇申請</a>
                         </div>
+                        <div class="col-md-10 px-0 h5">
+                            <a href="{{ action('General\WorkController@index') }}">案件情報</a>
+                        </div>
                     </div>
                     <div class="col-md-8">
                         @yield('content')
