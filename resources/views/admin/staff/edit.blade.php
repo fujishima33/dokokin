@@ -41,13 +41,13 @@
                                 </div>
                             </div>
                             
-                            <div class="form-group row">
-                                <label for="role" class="col-md-4 col-form-label text-md-right">権限</label>
+                            <!--<div class="form-group row">-->
+                            <!--    <label for="role" class="col-md-4 col-form-label text-md-right">権限</label>-->
                                 
-                                <div class="col-md-6">
-                                    <input type="radio" name="role" value="10" checked>一般ユーザー
-                                </div>
-                            </div>
+                            <!--    <div class="col-md-6">-->
+                            <!--        <input type="radio" name="role" value="10" checked>一般ユーザー-->
+                            <!--    </div>-->
+                            <!--</div>-->
                             
                             <div class="form-group row">
                                 <label for="image" class="col-md-4 col-form-label text-md-right">アバター</label>

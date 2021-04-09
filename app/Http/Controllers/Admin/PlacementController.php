@@ -136,7 +136,7 @@ class PlacementController extends Controller
         $date = date('Y-m-d 00:00:00', $timestamp);
         // viewファイルで表示する内容
         $author = Auth::user()->id;
-        $users = User::where('author_id', $author)->paginate(2);
+        $users = User::where('author_id', $author)->paginate(20);
         $regist = Placement::where('regist_date', $date)->get();
         $work = Work::get();
         
@@ -212,7 +212,7 @@ class PlacementController extends Controller
         // viewファイルで表示する内容
         $md = date('n月j日', $timestamp);
         $author = Auth::user()->id;
-        $users = User::where('author_id', $author)->paginate(2);
+        $users = User::where('author_id', $author)->paginate(20);
         $regist = Placement::where('regist_date', $date)->get();
         $work = Work::get();
         
@@ -239,7 +239,7 @@ class PlacementController extends Controller
         $date = date("Y-m-d 00:00:00", $timestamp);
         $md = date('n月j日', $timestamp);
         $author = Auth::user()->id;
-        $users = User::where('author_id', $author)->paginate(2);
+        $users = User::where('author_id', $author)->paginate(20);
         $regist = Placement::where('regist_date', $date)->get();
         $work = Work::get();
         
