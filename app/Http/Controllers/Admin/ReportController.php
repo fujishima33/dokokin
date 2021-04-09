@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Work;
 use App\Timestamp;
 use Hash;
 use Auth;
+use App\Services\CsvDownloader;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ReportController extends Controller
 {
@@ -30,5 +33,10 @@ class ReportController extends Controller
             abort(404);
         }
         return view('admin.report.single', ['reports' => $reports, 'user' => $user]);
+    }
+    
+    public function download(): StreamedResponse
+    {
+        return (new CsvDownloader())->download();
     }
 }
