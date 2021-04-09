@@ -34,7 +34,7 @@
                                             @if( $timestamp->where('user_id', $user->id)->first() == NULL)
                                                 データなし
                                             @else
-                                                {{ $user->timestamp->sortByDesc('updated_at')->first()->punchIn->format('H:i') }}
+                                                {{ $user->timestamp->sortByDesc('updated_at')->first()->punchIn->format('G:i') }}
                                             @endif
                                         </td>
                                         <td>
@@ -43,7 +43,7 @@
                                             @elseif($user->timestamp->sortByDesc('updated_at')->first()->punchOut == NULL)
                                                 勤務中です
                                             @else
-                                                {{ $user->timestamp->sortByDesc('updated_at')->first()->punchOut->format('H:i') }}
+                                                {{ $user->timestamp->sortByDesc('updated_at')->first()->punchOut->format('G:i') }}
                                             @endif
                                         </td>
                                         <td><div><a class="link-ope" href="{{ action('Admin\ReportController@single', ['id' => $user->id]) }}">表示する</a></div></td>

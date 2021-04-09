@@ -42,7 +42,7 @@
                             @foreach($reports as $report)
                                 <tr>
                                     <th>{{ $report->punchIn->format('n月j日') }}</th>
-                                    <td>{{ $report->punchIn->format('H:i') }}
+                                    <td>{{ $report->punchIn->format('G:i') }}
                                     
                                     
                                     </td>
@@ -50,7 +50,7 @@
                                         @if($report->punchOut == null)
                                             未入力
                                         @else
-                                            {{ $report->punchOut->format('H:i') }}
+                                            {{ $report->punchOut->format('G:i') }}
                                         @endif
                                     </td>
                                     <td>
