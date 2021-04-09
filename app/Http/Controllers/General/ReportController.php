@@ -17,7 +17,7 @@ class ReportController extends Controller
         // 打刻の時間表示用
         $timestamp = Timestamp::where('user_id', $user->id)->latest()->first();
         // 打刻の履歴表示
-        $reports = Timestamp::where('user_id', $user->id)->latest()->paginate(20);
+        $reports = Timestamp::where('user_id', $user->id)->orderBy('punchIn', 'desc')->paginate(20);
         // ログインしているユーザーの管理者が作成した案件を取得
         $author = Auth::user()->author_id;
         $works = Work::where('author_id', $author)->get();

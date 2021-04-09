@@ -51,7 +51,7 @@ class StaffController extends Controller
     public function index(Request $request)
     {
         $author = Auth::user()->id;
-        $users = User::where('author_id', $author)->paginate(10);
+        $users = User::where('author_id', $author)->orderBy('created_at', 'asc')->paginate(10);
         
         return view('admin.staff', ['users' => $users]);
     }
