@@ -59,29 +59,45 @@ class PlacementController extends Controller
         // 例）１日が水曜日だった場合、日曜日から火曜日の３つ分の空セルを追加する
         $week .= str_repeat('<td></td>', $youbi);
         
+        // 現在ログインしている管理者の全案件情報を取得
+        $work_all = Work::where('author_id', Auth::user()->id)->get();
+        // 現在ログインしている管理者の登録した全人員配置情報を取得
+        $registed_all = Placement::where('author_id', Auth::user()->id)->get();
         
         for ($day = 1; $day <= $day_count; $day++, $youbi++) {
             $date = $ym . '-' . $day;
-            
             if ($today == $date) {
                 // 今日の日付の場合は、class="today"をつける
                 $week .= '<td class="today"><a href="placement/single?id=' . $date . '"><p>';
             } else {
                 $week .= '<td><a href="placement/single?id=' . $date . '"><p>';
             }
-            // $formed_date = strtotime($date);
-            // $corrected_date = date('Y-m-d', $formed_date);
-            // dd($corrected_date);
-            // $registed = Placement::where('author_id', Auth::user()->id)->where('regist_date', $corrected_date)->work_id->get();
-            // $registed_list = array_column($registed, 'id');
             
+            $week .= $day . '</p><div>';
             
-            $week .= $day . '</p><div>
-            <span class="badge badge-warning ml-2">案件１</span>
-            </div></a></td>';
+            // 日付のフォーマット
+            $formed_date = strtotime($date);
+            $corrected_date = date('Y-m-d 00:00:00', $formed_date);
+            // placementテーブルにあるデータから該当の日付のデータを取得し、配列を作成
+            $registed = $registed_all->where('regist_date', $corrected_date)->all();
+            $registed_list = array_unique(array_column($registed, 'work_id'));
+            // workテーブルからデータを取得し、案件名の入った配列を作成
+            $work_list = [];
+            foreach ($registed_list as $rl) {
+                $wl = $work_all->where('id', $rl)->first()->work_title;
+                $work_list[] = $wl;
+            }
             
-            
-            
+            // spanタグと案件名を追加
+            if (empty($work_list)) {
+                '';
+            } else {
+                foreach ($work_list as $job) {
+                    $week .= '<span class="badge badge-warning ml-2">' . $job . '</span>';
+                }
+            }
+            // タグを閉じる
+            $week .= '</div></a></td>';
             
             // 週終わり、または、月終わりの場合
             if ($youbi % 7 == 6 || $day == $day_count) {
@@ -103,11 +119,13 @@ class PlacementController extends Controller
     
     public function single(Request $request)
     {
+        // 送られてきたidを$dateに代入
         $date = $request->id;
+        // 時刻情報の整理
         $timestamp = strtotime($date);
         $md = date('n月j日', $timestamp);
         $date = date('Y-m-d 00:00:00', $timestamp);
-        
+        // viewファイルで表示する内容
         $users = Auth::user()->general_users;
         $regist = Placement::where('regist_date', $date)->get();
         $work = Work::get();
@@ -140,35 +158,26 @@ class PlacementController extends Controller
         $find = Placement::where('regist_date', $date)
             ->where('user_id', $request->id)
             ->first();
-            
+        
+        // フォームから送信されてきたデータを取得し、不要なデータは削除する
+        $form = $request->all();
+        unset($form['_token']);
+        unset($form['id']);
+        unset($form['timestamp']);
+        
+        // 送信されてきたuser_idはユーザー名なので、idの値を上書きする
+        $user = User::where('name', $request->user_id)->first();
+        $form['user_id'] = $user->id;
+        
         // 登録データの有無を確認
         if (!isset($find)) {
             // データが無い時は新しく作成
             $placement = new Placement;
-            $form = $request->all();
-            
-            // フォームから送信されてきた_tokenを削除する
-            unset($form['_token']);
-            unset($form['id']);
-            unset($form['timestamp']);
-            
-            // 送信されてきたuser_idはユーザー名なので、idの値を上書きする
-            $user = User::where('name', $request->user_id)->first();
-            $form['user_id'] = $user->id;
             
             // 該当するデータを上書きして保存する
             $placement->fill($form)->save();
         } else {
-            // データが有る時は上書き
-            $form = $request->all();
-            unset($form['_token']);
-            unset($form['id']);
-            unset($form['timestamp']);
-            
-            // 送信されてきたuser_idはユーザー名なので、idの値を上書きする
-            $user = User::where('name', $request->user_id)->first();
-            $form['user_id'] = $user->id;
-            
+            // データがある時は上書きする
             // 該当するデータを上書きして保存する
             $placement = $find->fill($form)->save();
         }
