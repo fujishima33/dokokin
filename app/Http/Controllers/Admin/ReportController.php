@@ -15,7 +15,11 @@ class ReportController extends Controller
     {
         $users = Auth::user()->general_users;
         
-        return view('admin.report', ['users' => $users]);
+        $timestamp = Timestamp::get();
+        // $timestamp = Timestamp::where('user_id', 2)->first();
+        // dd($timestamp);
+        
+        return view('admin.report', ['users' => $users, 'timestamp' => $timestamp]);
     }
     
     public function single(Request $request)

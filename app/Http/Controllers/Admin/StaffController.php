@@ -31,9 +31,9 @@ class StaffController extends Controller
   
   public function index(Request $request)
   {
-      $posts = Auth::user()->general_users;
+      $users = Auth::user()->general_users;
       
-      return view('admin.staff', ['posts' => $posts]);
+      return view('admin.staff', ['users' => $users]);
   }
   
   public function edit(Request $request)

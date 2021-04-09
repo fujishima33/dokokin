@@ -31,7 +31,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $user)
+                            @foreach($users as $user)
                                 <tr>
                                     <th>{{ $user->name }}</th>
                                     <td>{{ $user->email }}</td>

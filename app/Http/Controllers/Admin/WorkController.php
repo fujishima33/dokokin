@@ -18,9 +18,9 @@ class WorkController extends Controller
   public function index()
   {
       $user = Auth::user();
-      $posts = Work::where('author_id', $user->id)->latest()->get();
+      $works = Work::where('author_id', $user->id)->latest()->get();
       
-      return view('admin.work', ['posts' => $posts]);
+      return view('admin.work', ['works' => $works]);
   }
   
   public function create(Request $request)
@@ -36,9 +36,9 @@ class WorkController extends Controller
       
       //今までに作成した案件を取得
       $user = Auth::user();
-      $posts = Work::where('author_id', $user->id)->latest()->get();
+      $works = Work::where('author_id', $user->id)->latest()->get();
       
-      return view('admin.work', ['posts' => $posts]);
+      return view('admin.work', ['works' => $works]);
   }
   
   public function edit(Request $request)

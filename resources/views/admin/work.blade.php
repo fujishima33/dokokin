@@ -32,7 +32,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $work)
+                            @foreach($works as $work)
                                 <tr>
                                     <th>{{ $work->work_title }}</th>
                                     <td>{{ $work->body }}</td>
