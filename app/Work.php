@@ -8,9 +8,13 @@ class Work extends Model
 {
     protected $guarded = array('id');
 
-    // 以下を追記
     public static $rules = array(
         'work_title' => 'required',
         'body' => 'required',
     );
+    
+    public function placement()
+    {
+        return $this->hasMany('App\Placement');
+    }
 }

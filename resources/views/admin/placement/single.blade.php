@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mx-auto">
-                <h2>{{ $month }}の予定</h2>
+                <h2>{{ $md }}の予定</h2>
             </div>
         </div>
         
@@ -20,15 +20,25 @@
                             <tr>
                                 <th width="20%">氏名</th>
                                 <th width="30%">案件名</th>
-                                <th width="10%">編集</th>
+                                <th width="10%"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($users as $user)
                                 <tr>
                                     <th>{{ $user->name }}</th>
-                                    <td>{{ $work }}</td>
-                                    <td><div><a href="{{ action('Admin\PlacementController@edit', ['id' => $user->id, 'timestamp' => $timestamp]) }}">編集</a></div></td>
+                                    @if($regist->where('user_id', $user->id)->first() == NULL)
+                                        <td>未登録</td>
+                                    @else
+                                        <td>{{ $work->where('id', $regist->where('user_id', $user->id)->first()->work_id)->first()->work_title }}</td>
+                                    @endif
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('Admin\PlacementController@edit', ['id' => $user->id, 'timestamp' => $timestamp]) }}">
+                                            登録
+                                            </a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                             

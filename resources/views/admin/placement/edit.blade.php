@@ -13,26 +13,38 @@
             </div>
         </div>
         
-        <div class="form-group row">
-            <label for="name" class="col-md-2 col-form-label text-md-right">氏名</label>
-            <div class="col-md-6">{{ $user->name }}</div>
-        </div>
-        <div class="form-group row">
-            <label for="name" class="col-md-2 col-form-label text-md-right">日付</label>
-            <div class="col-md-6">{{ $md }}</div>
-        </div>
-        <div class="form-group row">
-            <label for="name" class="col-md-2 col-form-label text-md-right">案件名</label>
-            <div class="col-md-6">
-                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            </div>
-        </div>
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                    登録
-                </button>
-            </div>
+        <div>
+            <form action="{{ action('Admin\PlacementController@regist') }}" method="post" enctype="multipart/form-data">
+                @if (count($errors) > 0)
+                    <ul>
+                        @foreach($errors->all() as $e)
+                            <li>{{ $e }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+                <div class="form-group row">
+                    <label for="user_id" class="col-md-2 col-form-label text-md-right">氏名</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="user_id" value="{{ $user->name }}" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="regist_date" class="col-md-2 col-form-label text-md-right">日付</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="regist_date" value="{{ $ymd }}" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="work_id" class="col-md-2 col-form-label text-md-right">案件名</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="work_id" value="{{ old('work_id') }}">
+                    </div>
+                </div>
+                <input type="hidden" name="id" value="{{ $user->id }}">
+                <input type="hidden" name="timestamp" value="{{ $timestamp }}">
+                {{ csrf_field() }}
+                <input type="submit" class="btn btn-primary" value="更新">
+            </form>
         </div>
         
     </div>
