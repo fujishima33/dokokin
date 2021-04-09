@@ -9,15 +9,15 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-12 mx-auto">
                 <h2>社員情報編集</h2>
             </div>
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-12 mx-auto">
                 <a href="{{ action('Admin\StaffController@index') }}">一覧へ戻る</a>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">アカウント登録</div>
     

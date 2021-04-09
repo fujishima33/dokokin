@@ -75,27 +75,27 @@
             {{-- ここまでナビゲーションバー --}}
 
             <main class="py-4">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="col-md-10 mx-auto">
+                <div class="row justify-content-center">
+                    <div class="col-md-2 p-3">
+                        <div class="col-md-10 px-0 h5">
                             <a href="{{ action('AdminController@top') }}">トップページ</a>
                         </div>
-                        <div class="col-md-10 mx-auto">
+                        <div class="col-md-10 px-0 h5">
                             <a href="{{ action('AdminController@report') }}">日報</a>
                         </div>
-                        <div class="col-md-10 mx-auto">
+                        <div class="col-md-10 px-0 h5">
                             <a href="{{ action('AdminController@info') }}">連絡事項</a>
                         </div>
-                        <div class="col-md-10 mx-auto">
+                        <div class="col-md-10 px-0 h5">
                             <a href="{{ action('AdminController@apply') }}">休暇申請</a>
                         </div>
-                        <div class="col-md-10 mx-auto">
+                        <div class="col-md-10 px-0 h5">
                             <a href="{{ action('Admin\StaffController@index') }}">社員情報</a>
                         </div>
-                        <div class="col-md-10 mx-auto">
+                        <div class="col-md-10 px-0 h5">
                             <a href="{{ action('AdminController@work') }}">案件情報</a>
                         </div>
-                        <div class="col-md-10 mx-auto">
+                        <div class="col-md-10 px-0 h5">
                             <a href="{{ action('AdminController@placement') }}">人員配置</a>
                         </div>
                     </div>

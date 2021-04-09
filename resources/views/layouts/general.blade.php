@@ -75,18 +75,18 @@
             {{-- ここまでナビゲーションバー --}}
 
             <main class="py-4">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="col-md-10 mx-auto">
-                            <a href="{{ action('GeneralController@top') }}">トップページ</a>
+                <div class="row justify-content-center">
+                    <div class="col-md-2 p-3">
+                        <div class="col-md-10 px-0 h5">
+                            <a href="{{ action('GeneralController@top') }}">トップ</a>
                         </div>
-                        <div class="col-md-10 mx-auto">
+                        <div class="col-md-10 px-0 h5">
                             <a href="{{ action('GeneralController@report') }}">日報</a>
                         </div>
-                        <div class="col-md-10 mx-auto">
+                        <div class="col-md-10 px-0 h5">
                             <a href="{{ action('GeneralController@info') }}">連絡事項</a>
                         </div>
-                        <div class="col-md-10 mx-auto">
+                        <div class="col-md-10 px-0 h5">
                             <a href="{{ action('GeneralController@apply') }}">休暇申請</a>
                         </div>
                     </div>

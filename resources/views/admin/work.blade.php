@@ -8,10 +8,10 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-12 mx-auto">
                 <h2>案件情報</h2>
             </div>
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-12 mx-auto">
                 <a href="{{ action('Admin\WorkController@add') }}">新規登録</a>
             </div>
         </div>
