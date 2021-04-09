@@ -47,7 +47,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     Route::get('/', 'AdminController@top');
     
     // 日報-----------------------------------------------------------------
+    // 社員一覧
     Route::get('report', 'Admin\ReportController@index');
+    // 単独表示
+    Route::get('report/single', 'Admin\ReportController@single');
     //社員情報--------------------------------------------------------------
     // ユーザ一覧
     Route::get('staff', 'Admin\StaffController@index');

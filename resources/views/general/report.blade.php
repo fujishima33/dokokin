@@ -14,7 +14,7 @@
                 
                 <div class="border mb-3 p-3">
                     <div class="">
-                        <h3>本日の出勤状況</h3>
+                        <h3>{{ $timestamp->punchIn->format('m月d日 ') }}の出勤状況</h3>
                     </div>
                     
                     
@@ -32,7 +32,7 @@
                         <div class="col-md-8">
                             <div class="m-2 pl-4 h4 d-inline-block">出勤時間</div>
                             <div class="m-2 pl-4 h4 d-inline-block">
-                                {{ $timestamp->punchIn }}
+                                {{ $timestamp->punchIn->format('H:i:s') }}
                             </div>
                         </div>
                     </div>
@@ -41,16 +41,10 @@
                         <div class="col-md-8">
                             <div class="m-2 pl-4 h4 d-inline-block">退勤時間</div>
                             <div class="m-2 pl-4 h4 d-inline-block">
-                                {{ $timestamp->punchOut }}
+                                {{ $timestamp->punchOut->format('H:i:s') }}
                             </div>
                         </div>
                     </div>
-                    <!--<div class="row">-->
-                    <!--    <div class="col-md-9"></div>-->
-                    <!--    <div class="col-md-3">-->
-                    <!--        <a href="{{ action('General\ReportController@edit') }}">日報を書く</a>-->
-                    <!--    </div>-->
-                    <!--</div>-->
                 </div>
                 
                 <div class="border p-3">
@@ -64,20 +58,20 @@
                                 <table class="table table-gray">
                                     <thead>
                                         <tr>
-                                            <th width="10%">日付</th>
-                                            <th width="10%">出勤時刻</th>
-                                            <th width="10%">退勤時刻</th>
+                                            <th width="12%">日付</th>
+                                            <th width="12%">出勤時刻</th>
+                                            <th width="12%">退勤時刻</th>
                                             <th width="20%">案件名</th>
-                                            <th width="40%">業務内容</th>
+                                            <th width="34%">業務内容</th>
                                             <th width="10%">編集</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($reports as $report)
                                             <tr>
-                                                <th>{{ $report->punchIn }}</th>
-                                                <td>{{ $report->punchIn }}</th>
-                                                <td>{{ $report->punchOut }}</th>
+                                                <th>{{ $report->punchIn->format('m月d日') }}</th>
+                                                <td>{{ $report->punchIn->format('H:i:s') }}</th>
+                                                <td>{{ $report->punchOut->format('H:i:s') }}</th>
                                                 <td>{{ $report->work_id }}</td>
                                                 <td>{{ \Str::limit($report->detail, 20) }}</td>
                                                 <td>
