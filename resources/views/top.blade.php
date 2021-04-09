@@ -18,7 +18,7 @@
                         <h1>どこ勤</h1>
                     </div>
                     <div class="col-md-12 mx-auto my-3">
-                        <p>スマホ・PCでどこにいても勤怠管理ができる。</p>
+                        <p>スマホ・PCでどこにいても勤怠管理ができる</p>
                     </div>
                     <div class="col-md-12 mx-auto my-2">
                         <button type="submit" class="btn btn-primary new-account">
