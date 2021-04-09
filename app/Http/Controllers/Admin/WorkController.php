@@ -27,7 +27,10 @@ class WorkController extends Controller
     public function create(Request $request)
     {
         // Varidationを行う
-        $this->validate($request, Work::$rules);
+        $request->validate([
+            'work_title' => 'required',
+            'body' => 'required',
+        ]);
       
         $work = new Work;
         $form = $request->all();
@@ -53,6 +56,12 @@ class WorkController extends Controller
   
     public function update(Request $request)
     {
+        // Varidationを行う
+        $request->validate([
+            'work_title' => 'required',
+            'body' => 'required',
+        ]);
+        
         //Work Modelからデータを取得
         $work = Work::find($request->id);
         //   dd($work);

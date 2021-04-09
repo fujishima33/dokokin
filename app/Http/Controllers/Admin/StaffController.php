@@ -19,6 +19,13 @@ class StaffController extends Controller
   
     public function create(Request $request)
     {
+        // Varidationを行う
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255|unique:users|email',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+        
         $form = $request->all();
       
         $user = User::create([
@@ -28,6 +35,7 @@ class StaffController extends Controller
             'role' => $form['role'],
             'author_id' => $form['author_id']
         ]);
+        
         return redirect('admin/staff');
     }
   
@@ -49,6 +57,12 @@ class StaffController extends Controller
   
     public function update(Request $request)
     {
+        // Varidationを行う
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,'.$request->id.',id',
+        ]);
+        
         //User Modelからデータを取得
         $user = User::find($request->id);
       

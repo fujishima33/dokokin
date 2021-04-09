@@ -28,12 +28,9 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">氏名</label>
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user_form->name }}" required autocomplete="name" autofocus>
-    
-                                    @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    @if ($errors->has('name'))
+                                        <div class="text-danger">{{$errors->first('name')}}</div>
+                                    @endif
                                 </div>
                             </div>
     
@@ -41,12 +38,9 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user_form->email }}" required autocomplete="email">
-    
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    @if ($errors->has('email'))
+                                        <div class="text-danger">{{$errors->first('email')}}</div>
+                                    @endif
                                 </div>
                             </div>
                             
