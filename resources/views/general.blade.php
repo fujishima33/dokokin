@@ -12,7 +12,11 @@
                 <div class="border mb-3 p-3">
                     <div class="row">
                         <div class="col-sm-12 col-md-4 mx-auto gen-avatar">
-                            <img src="{{ asset('storage/image/' . $user->image_path) }}">
+                            @if($user->image_path == null)
+                                <img src="{{ asset('storage/background/default.jpg') }}">
+                            @else
+                                <img src="{{ asset('storage/image/' . $user->image_path) }}">
+                            @endif
                             <h5>{{ $user->name }}</h5>
                         </div>
                         

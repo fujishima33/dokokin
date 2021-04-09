@@ -116,8 +116,13 @@ class GeneralController extends Controller
         // 打刻ボタン関連
         $punch_today = date('Y-m-d');
         $punch_latest = Timestamp::where('user_id', $user->id)->latest()->first();
-        $punch_latest_in = date('Y-m-d', strtotime($punch_latest->punchIn));
-        $punch_latest_out = date('Y-m-d', strtotime($punch_latest->punchOut));
+        if ($punch_latest == null) {
+            $punch_latest_in = null;
+            $punch_latest_out = null;
+        } else {
+            $punch_latest_in = date('Y-m-d', strtotime($punch_latest->punchIn));
+            $punch_latest_out = date('Y-m-d', strtotime($punch_latest->punchOut));
+        }
         
         return view('general', [
             'user' => $user,
