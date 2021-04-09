@@ -32,7 +32,7 @@
                         </form>
                     </div>
                     <div class='d-inline-block'>
-                        <a class="m-3" href="{{ action('GeneralController@report') }}">日報を確認する</a>
+                        <a class="m-3" href="{{ action('TimestampsController@report') }}">日報を確認する</a>
                     </div>
                     @if (session('error'))
                         <div class="container mt-2">

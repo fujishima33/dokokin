@@ -28,7 +28,7 @@ Route::group(['prefix' => 'general', 'middleware' => ['auth', 'can:user-higher']
     Route::post('/punchin', 'TimestampsController@punchIn')->name('timestamp/punchin');
     Route::post('/punchout', 'TimestampsController@punchOut')->name('timestamp/punchout');
     // 日報
-    Route::get('report', 'GeneralController@report');
+    Route::get('report', 'TimestampsController@report');
     Route::get('report/edit', 'General\ReportController@edit');
     // 連絡事項
     Route::get('info', 'GeneralController@info');

@@ -8,15 +8,10 @@ use App\Http\Controllers\Controller;
 class GeneralController extends Controller
 {
     public function top()
-  {
-      return view('general');
-  }
-  
-  public function report()
     {
-      return view('general.report');
+        return view('general');
     }
-    
+
     public function info()
     {
       return view('general.info');
