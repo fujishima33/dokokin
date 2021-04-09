@@ -81,7 +81,7 @@
                             <a href="{{ action('AdminController@top') }}">トップページ</a>
                         </div>
                         <div class="col-md-10 px-0 h5">
-                            <a href="{{ action('AdminController@report') }}">日報</a>
+                            <a href="{{ action('Admin\ReportController@index') }}">日報</a>
                         </div>
                         <div class="col-md-10 px-0 h5">
                             <a href="{{ action('AdminController@info') }}">連絡事項</a>
