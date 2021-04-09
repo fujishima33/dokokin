@@ -18,7 +18,6 @@ class ReportController extends Controller
         $timestamp = Timestamp::where('user_id', $user->id)->latest()->first();
         // 打刻の履歴表示
         $reports = Timestamp::where('user_id', $user->id)->latest()->paginate(20);
-        // dd($reports);
         // ログインしているユーザーの管理者が作成した案件を取得
         $author = Auth::user()->author_id;
         $works = Work::where('author_id', $author)->get();
@@ -41,11 +40,20 @@ class ReportController extends Controller
     public function update(Request $request)
     {
         $report = Timestamp::find($request->id);
-        $report_form = $request->all();
+        $before = $request->all();
+        
+        // 入力された時刻はstring型のため、datetime型に変換
+        $datetime_in = date("Y-m-d H:i:s", strtotime($request->punchIn));
+        $datetime_out = date("Y-m-d H:i:s", strtotime($request->punchOut));
+        // 配列を置き換える
+        $replace = array(
+            'punchIn' => $datetime_in,
+            'punchOut' => $datetime_out
+        );
+        $report_form = array_replace($before, $replace);
+        
         unset($report_form['_token']);
-        
         $report->fill($report_form)->save();
-        
         return redirect('general/report');
     }
 }
