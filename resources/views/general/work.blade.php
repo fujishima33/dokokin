@@ -37,15 +37,7 @@
                         </tbody>
                     </table>
                     <div class="pagination">
-                        @if ( $works->hasPages() )
-                            {{ $works->links() }}
-                        @else
-                            <div class="pager">
-                                <div class="prev">&lt;</div>
-                                <div class="current">1</div>
-                                <div class="next">&gt;</div>
-                            </div>
-                        @endif
+                        {{ $works->links() }}
                     </div>
                 </div>
             </div>
