@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-4 mx-auto gen-avatar">
                             @if($user->image_path == null)
-                                <img src="{{ asset('storage/background/default.jpg') }}">
+                                <img src="/storage/background/default.jpg">
                             @else
                                 <img src="{{ $user->image_path }}">
                             @endif
