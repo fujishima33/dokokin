@@ -38,7 +38,7 @@
                                 <tr>
                                     <th class="avatar">
                                         @if ($user->image_path)
-                                            <img src="{{ asset('storage/image/' . $user->image_path) }}">
+                                            <img src="{{ $user->image_path }}">
                                         @endif
                                     </th>
                                     <td>{{ $user->name }}</td>

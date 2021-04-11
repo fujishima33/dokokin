@@ -15,7 +15,7 @@
                             @if($user->image_path == null)
                                 <img src="{{ asset('storage/background/default.jpg') }}">
                             @else
-                                <img src="{{ asset('storage/image/' . $user->image_path) }}">
+                                <img src="{{ $user->image_path }}">
                             @endif
                             <h5>{{ $user->name }}</h5>
                         </div>

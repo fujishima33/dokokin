@@ -10,6 +10,7 @@ use App\Placement;
 use App\Timestamp;
 use Hash;
 use Auth;
+use Storage;
 
 class StaffController extends Controller
 {
@@ -37,8 +38,8 @@ class StaffController extends Controller
         $user->author_id = $request->author_id;
         
         if (isset($request['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $user->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/', $request['image'], 'public');
+            $user->image_path = Storage::disk('s3')->url($path);
         } else {
             $user->image_path = null;
         }
@@ -81,8 +82,8 @@ class StaffController extends Controller
         if ($request->remove == 'true') {
             $user_form['image_path'] = null;
         } elseif ($request->file('image')) {
-            $path = $request->file('image')->store('public/image');
-            $user_form['image_path'] = basename($path);
+            $path = Storage::disk('s3')->putFile('/', $user_form['image'], 'public');
+            $user_form['image_path'] = Storage::disk('s3')->url($path);
         } else {
             $user_form['image_path'] = $user->image_path;
         }
