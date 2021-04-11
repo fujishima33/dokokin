@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.no-image {
+  width: 150px;
+  height: 150px;
+}
+
 .gen-avatar img {
   width: 100%;
   max-width: 150px;

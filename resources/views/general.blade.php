@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-4 mx-auto gen-avatar">
                             @if($user->image_path == null)
-                                <img src="/storage/background/default.jpg">
+                                <img class="no-image">
                             @else
                                 <img src="{{ $user->image_path }}">
                             @endif
@@ -26,7 +26,6 @@
                                 <div class="time">
                                     <p id="toda"></p>
                                     <p id="realtime"></p>
-                                    
                                 </div>
                             </div>
                             
