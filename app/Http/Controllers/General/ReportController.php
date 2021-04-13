@@ -46,6 +46,7 @@ class ReportController extends Controller
         // 入力された時刻はstring型のため、datetime型に変換
         $datetime_in = date("Y-m-d H:i:s", strtotime($request->punchIn));
         $datetime_out = date("Y-m-d H:i:s", strtotime($request->punchOut));
+        
         // 配列を置き換える
         $replace = array(
             'punchIn' => $datetime_in,
@@ -55,6 +56,7 @@ class ReportController extends Controller
         
         unset($report_form['_token']);
         $report->fill($report_form)->save();
+        
         return redirect('general/report');
     }
 }

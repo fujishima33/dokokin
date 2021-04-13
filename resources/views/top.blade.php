@@ -1,10 +1,10 @@
-{{-- layouts/admin.blade.phpを読み込む --}}
+{{-- layouts/top.blade.phpを読み込む --}}
 @extends('layouts.top')
 
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- top.blade.phpの@yield('title')にページ名を埋め込む --}}
 @section('title', 'どこ勤')
 
-{{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+{{-- top.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
     <div class="container first">
         <div class="section-1 row">
@@ -88,6 +88,33 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            
+        </div>
+    </div>
+@endsection
+
+{{-- top.blade.phpの@yield('content-second')に以下のタグを埋め込む --}}
+@section('content-second')
+    <div class="container second">
+        <div class="section-2 row">
+            <div class="col-md-12 explain">
+                <div class="mt-5 mb-3">
+                    <h5 class="font-weight-bold">※本アプリについて※</h5>
+                    <p>このアプリは管理者と一般ユーザーで表示される内容が異なります。</p>
+                    <p>以下のアドレスとパスワードを使用して頂ければすぐに閲覧が可能です。</p>
+                </div>
+                <div class="my-3">
+                    <p class="font-weight-bold">管理者アカウント</p>
+                    <p>メールアドレス：admin@test.com</p>
+                    <p>パスワード：1111aaaa</p>
+                </div>
+                <div class="my-3">
+                    <p class="font-weight-bold">一般ユーザーアカウント</p>
+                    <p>メールアドレス：user@test.com</p>
+                    <p>パスワード：1111aaaa</p>
+                </div>
+                
             </div>
             
         </div>

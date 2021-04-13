@@ -1,7 +1,7 @@
 {{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.admin')
 
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- admin.blade.phpの@yield('title')にページ名を埋め込む --}}
 @section('title', '社員情報一覧')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}

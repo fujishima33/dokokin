@@ -26,10 +26,6 @@ body {
     background-repeat: no-repeat;
     // 表示位置
     background-position: 50% 75%;
-    // コンテンツの高さが画像の高さより大きい時、動かないように固定
-    // background-attachment: fixed;
-    // 表示するコンテナの大きさに基づいて、背景画像を調整
-    // background-size: cover;
 }
 
 .left {
@@ -60,5 +56,12 @@ body {
         font-size: 20px;
         background-color: rgba(0, 0, 0, 0);
         border-bottom: 1px solid rgba(0, 0, 0, 0);
+    }
+}
+
+.explain {
+    text-align: center;
+    p {
+        margin-bottom: 0;
     }
 }

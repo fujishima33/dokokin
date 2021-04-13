@@ -88,8 +88,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     Route::post('placement/single', 'Admin\PlacementController@regist');
     // 削除
     Route::get('placement/delete', 'Admin\PlacementController@delete');
-    // 保留
-    // Route::get('placement/create', 'Admin\PlacementController@create');
 });
 
 // システム管理者のみ

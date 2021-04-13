@@ -1,9 +1,8 @@
 {{-- layouts/general.blade.phpを読み込む --}}
 @extends('layouts.general')
 
-{{-- general.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- general.blade.phpの@yield('title')にページ名を埋め込む --}}
 @section('title', '日報 編集')
-
 
 {{-- general.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')

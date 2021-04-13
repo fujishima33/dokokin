@@ -77,6 +77,9 @@
             <main class="back py-5">
                 @yield('content')
             </main>
+            <section class="mx-auto">
+                @yield('content-second')
+            </section>
         </div>
     </body>
 </html>

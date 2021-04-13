@@ -87,11 +87,5 @@
                 </div>
             </main>
         </div>
-        
-          <!-- jQueryの読み込み -->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-          <!-- 自作JavaScriptの読み込み -->
-        <script src=""></script>
-        
     </body>
 </html>

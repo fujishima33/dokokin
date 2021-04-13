@@ -1,7 +1,7 @@
 {{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.admin')
 
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- admin.blade.phpの@yield('title')にページ名を埋め込む --}}
 @section('title', 'シフト登録')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
@@ -12,7 +12,6 @@
                 <h3>シフト登録</h3>
             </div>
         </div>
-        
         <div class="row justify-content-center">
             <div class="col-md-12 create-form">
                 <div class="card">
@@ -27,7 +26,6 @@
                                     @endforeach
                                 </ul>
                             @endif
-                            
                             <div class="form-group row">
                                 <label for="user_id" class="col-md-3 col-form-label text-md-right">氏名</label>
                                 <div class="col-md-9">
