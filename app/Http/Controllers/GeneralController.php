@@ -60,6 +60,7 @@ class GeneralController extends Controller
         
         // 現在ログインしているユーザーの管理者の全案件情報を取得
         $work_all = Work::where('author_id', Auth::user()->author_id)->get();
+        
         // 現在ログインしているユーザーに指定された全ての人員配置情報を取得
         $registed_all = Placement::where('user_id', Auth::user()->id)->get();
 
@@ -76,9 +77,11 @@ class GeneralController extends Controller
             // 日付のフォーマット
             $formed_date = strtotime($date);
             $corrected_date = date('Y-m-d 00:00:00', $formed_date);
+            
             // placementテーブルにあるデータから該当の日付のデータを取得し、配列を作成
             $registed = $registed_all->where('regist_date', $corrected_date)->all();
             $registed_list = array_unique(array_column($registed, 'work_id'));
+            
             // workテーブルからデータを取得し、案件名の入った配列を作成
             $work_list = [];
             foreach ($registed_list as $rl) {

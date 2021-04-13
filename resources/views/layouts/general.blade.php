@@ -11,10 +11,10 @@
         <title>@yield('title')</title>
 
         <!-- Scripts -->
-         {{-- Laravel標準Javascriptを読み込み --}}
+        {{-- Laravel標準Javascriptを読み込み --}}
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
         
-         {{-- 時刻表示 --}}
+        {{-- 時刻表示 --}}
         <script>
             function twoDigit(num) {
                 let ret;

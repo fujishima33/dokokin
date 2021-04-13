@@ -1,7 +1,7 @@
 {{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.admin')
 
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- admin.blade.phpの@yield('title')にページ名を埋め込む --}}
 @section('title', 'シフト一覧（日別）')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
@@ -12,7 +12,6 @@
                 <h3>{{ $md }}の予定</h3>
             </div>
         </div>
-        
         <div class="row">
             <div class="col-md-12 mx-auto">
                 <div class="row">
@@ -42,7 +41,6 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            
                         </tbody>
                     </table>
                     <div class="pagination">

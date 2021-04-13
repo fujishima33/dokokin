@@ -1,8 +1,7 @@
 {{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.admin')
 
-
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- admin.blade.phpの@yield('title')にページ名を埋め込む --}}
 @section('title', '日報詳細')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
@@ -42,10 +41,7 @@
                             @foreach($reports as $report)
                                 <tr>
                                     <th>{{ $report->punchIn->format('n月j日') }}</th>
-                                    <td>{{ $report->punchIn->format('G:i') }}
-                                    
-                                    
-                                    </td>
+                                    <td>{{ $report->punchIn->format('G:i') }}</td>
                                     <td>
                                         @if($report->punchOut == null)
                                             未入力

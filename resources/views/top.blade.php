@@ -1,7 +1,7 @@
 {{-- layouts/top.blade.phpを読み込む --}}
 @extends('layouts.top')
 
-{{-- top.blade.phpの@yield('title')にサービス名を埋め込む --}}
+{{-- top.blade.phpの@yield('title')にページ名を埋め込む --}}
 @section('title', 'どこ勤')
 
 {{-- top.blade.phpの@yield('content')に以下のタグを埋め込む --}}

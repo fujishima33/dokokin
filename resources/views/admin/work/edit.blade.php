@@ -1,7 +1,7 @@
 {{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.admin')
 
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- admin.blade.phpの@yield('title')にページ名を埋め込む --}}
 @section('title', '案件編集')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
@@ -69,7 +69,6 @@
                                     <button type="submit" class="btn btn-danger ml-4">
                                         <a href="{{ action('Admin\WorkController@delete', ['id' => $work_form->id]) }}" class="delete">案件情報を削除</a>
                                     </button>
-                                    
                                 </div>
                             </div>
                         </form>
@@ -77,6 +76,5 @@
                 </div>
             </div>
         </div>
-        
     </div>
 @endsection
