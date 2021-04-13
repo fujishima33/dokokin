@@ -7,7 +7,7 @@
 テストアカウント
 | アカウント種類 | ID | PASS |
 |:-------|:--------|:-------|
-|管理者    |general@test.com    |1111aaaa    |
+|管理者    |admin@test.com    |1111aaaa    |
 |一般ユーザー    |user@test.com    |1111aaaa    |
 
 ## 機能一覧
