@@ -3,8 +3,8 @@
 
 ## サイトURL
 <https://dokokin.herokuapp.com/>  
-* テストアカウント
 
+テストアカウント
 | アカウント種類 | ID | PASS |
 |:-------|:--------|:-------|
 |管理者    |general@test.com    |1111aaaa    |
