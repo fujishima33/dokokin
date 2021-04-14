@@ -20,15 +20,26 @@ body {
 }
 
 .back {
-  background-color: #eee;
   background-image: url(/images/top.jpg?4074260ee7f8b413cd0befe1a45235bf);
   background-repeat: no-repeat;
   background-position: 50% 75%;
+  position: relative;
+}
+
+.back::before {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: " ";
 }
 
 .left {
+  color: #fff;
   text-align: center;
-  text-shadow: 1px 0 2px #fff;
+  text-shadow: 3px 3px 8px #111;
 }
 
 .left h1 {
@@ -49,6 +60,11 @@ body {
   color: #fff;
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
+}
+
+.login-box,
+.form-control {
+  background-color: #eee;
 }
 
 .right .login-body {

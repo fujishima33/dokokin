@@ -20,17 +20,27 @@ body {
 
 // main ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .back {
-    background-color: #eee;
     background-image: url(storage/background/top.jpg);
     // 繰り返し表示しない
     background-repeat: no-repeat;
     // 表示位置
     background-position: 50% 75%;
+    position: relative;
+}
+.back::before{
+  background-color: rgba(0,0,0,0.3);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
 }
 
 .left {
+    color: #fff;
     text-align: center;
-    text-shadow: 1px 0 2px #fff;
+    text-shadow: 3px 3px 8px #111;
     h1 {
         font-weight: 700;
     }
@@ -47,7 +57,11 @@ body {
         text-decoration-line: none;
     }
 }
-    
+
+.login-box, .form-control {
+    background-color: #eee;
+}
+
 .right {
     .login-body {
         text-align: center;
