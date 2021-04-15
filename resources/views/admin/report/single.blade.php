@@ -25,15 +25,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 mx-auto p-0">
+            <div class="col-md-12 mx-auto p-0 table-responsive-xl">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th width="15%">日付</th>
-                            <th width="15%">出勤時刻</th>
-                            <th width="15%">退勤時刻</th>
-                            <th width="20%">案件名</th>
-                            <th width="40%">業務内容</th>
+                            <th width="15%" class="th-ars-1">日付</th>
+                            <th width="15%" class="th-ars-2">出勤時刻</th>
+                            <th width="15%" class="th-ars-3">退勤時刻</th>
+                            <th width="20%" class="th-ars-4">案件名</th>
+                            <th width="35%" class="th-ars-5">業務内容</th>
                         </tr>
                     </thead>
                     <tbody>

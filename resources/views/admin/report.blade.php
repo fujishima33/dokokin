@@ -15,14 +15,14 @@
         
         <div class="row">
             <div class="col-md-12 mx-auto">
-                <div class="row">
+                <div class="row table-responsive-sm">
                     <table class="table table-bordered">
                         <thead>
-                            <tr>
-                                <th width="20%">氏名</th>
-                                <th width="30%">出勤時刻</th>
-                                <th width="30%">退勤時刻</th>
-                                <th width="20%"></th>
+                            <tr class="thead">
+                                <th width="25%" class="th-ar-1">氏名</th>
+                                <th width="25%" class="th-ar-2">出勤時刻</th>
+                                <th width="25%" class="th-ar-3">退勤時刻</th>
+                                <th width="25%" class="th-ar-4"></th>
                             </tr>
                         </thead>
                         <tbody>

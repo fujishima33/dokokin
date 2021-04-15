@@ -22,7 +22,7 @@
         
         <div class="row">
             <div class="col-md-12 mx-auto">
-                <div class="row">
+                <div class="row table-responsive-sm">
                     <table class="table table-bordered profile">
                         <thead>
                             <tr>
