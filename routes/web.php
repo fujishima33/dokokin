@@ -17,7 +17,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
     return view('top');
-});
+})->name('top');
 
 // 全ユーザ
 Route::group(['prefix' => 'general', 'middleware' => ['auth', 'can:user-higher']], function () {
@@ -89,7 +89,3 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']]
     // 削除
     Route::get('placement/delete', 'Admin\PlacementController@delete');
 });
-
-// システム管理者のみ
-    Route::group(['middleware' => ['auth', 'can:system-only']], function () {
-    });

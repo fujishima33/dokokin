@@ -13,7 +13,7 @@ class WorkController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $works = Work::where('author_id', $user->author_id)->latest()->paginate(20);
+        $works = Work::where('author_id', $user->author_id)->orderBy('created_at', 'desc')->paginate(20);
       
         return view('general.work', ['works' => $works]);
     }

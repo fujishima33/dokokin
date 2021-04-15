@@ -29,7 +29,7 @@
                 let month = now.getMonth()+1;
                 let date = now.getDate();
                 let day = now.getDay();
-                let nowHour = twoDigit( now.getHours() );
+                let nowHour = now.getHours();
                 let nowMin  = twoDigit( now.getMinutes() );
                 let nowSec  = twoDigit( now.getSeconds() );
                 
