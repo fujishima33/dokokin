@@ -22,15 +22,15 @@
         
         <div class="row">
             <div class="col-md-12 mx-auto">
-                <div class="row">
+                <div class="row table-responsive-sm">
                     <table class="table table-bordered profile">
                         <thead>
                             <tr>
-                                <th width="20%">アイコン画像</th>
-                                <th width="20%">氏名</th>
-                                <th width="30%">メールアドレス</th>
-                                <th width="20%">権限</th>
-                                <th width="10%"></th>
+                                <th width="20%" class="th-as-1">アイコン画像</th>
+                                <th width="20%" class="th-as-2">氏名</th>
+                                <th width="30%" class="th-as-3">メールアドレス</th>
+                                <th width="20%" class="th-as-4">権限</th>
+                                <th width="10%" class="th-as-5"></th>
                             </tr>
                         </thead>
                         <tbody>

@@ -236,6 +236,27 @@ thead th {
   overflow: hidden;
 }
 
+.th-ar-1,
+.th-ar-2,
+.th-ar-3,
+.th-ar-4 {
+  min-width: 100px;
+}
+
+.th-ars-1,
+.th-ars-2,
+.th-ars-3 {
+  min-width: 100px;
+}
+
+.th-ars-4 {
+  min-width: 150px;
+}
+
+.th-ars-5 {
+  min-width: 200px;
+}
+
 .staff-info {
   display: flex;
   justify-content: space-between;
@@ -262,6 +283,23 @@ thead th {
 
 .avatar {
   text-align: center;
+}
+
+.th-as-1,
+.th-as-2 {
+  min-width: 100px;
+}
+
+.th-as-3 {
+  min-width: 200px;
+}
+
+.th-as-4 {
+  min-width: 100px;
+}
+
+.th-as-5 {
+  min-width: 50px;
 }
 
 .card-body {
