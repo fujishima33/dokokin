@@ -14,50 +14,47 @@
         </div>
         
         <div class="row">
-            <div class="col-md-12 mx-auto">
-                <div class="row table-responsive-sm">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr class="thead">
-                                <th width="25%" class="th-ar-1">氏名</th>
-                                <th width="25%" class="th-ar-2">出勤時刻</th>
-                                <th width="25%" class="th-ar-3">退勤時刻</th>
-                                <th width="25%" class="th-ar-4"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if ($users != NULL)
-                                @foreach($users as $user)
-                                    <tr>
-                                        <th>{{ $user->name }}</th>
-                                        <td>
-                                            @if( $timestamp->where('user_id', $user->id)->first() == NULL)
-                                                データなし
-                                            @else
-                                                {{ $user->timestamp->sortByDesc('updated_at')->first()->punchIn->format('G:i') }}
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if( $timestamp->where('user_id', $user->id)->first() == NULL)
-                                                データなし
-                                            @elseif($user->timestamp->sortByDesc('updated_at')->first()->punchOut == NULL)
-                                                勤務中です
-                                            @else
-                                                {{ $user->timestamp->sortByDesc('updated_at')->first()->punchOut->format('G:i') }}
-                                            @endif
-                                        </td>
-                                        <td><div><a class="link-ope" href="{{ action('Admin\ReportController@single', ['id' => $user->id]) }}">一覧を表示</a></div></td>
-                                    </tr>
-                                @endforeach
-                            @endif
-                        </tbody>
-                    </table>
-                    <div class="pagination">
-                        {{ $users->links() }}
-                    </div>
+            <div class="col-md-12 mx-auto p-0 table-responsive-xl">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="thead">
+                            <th width="25%" class="th-ar-1">氏名</th>
+                            <th width="25%" class="th-ar-2">出勤時刻</th>
+                            <th width="25%" class="th-ar-3">退勤時刻</th>
+                            <th width="25%" class="th-ar-4"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if ($users != NULL)
+                            @foreach($users as $user)
+                                <tr>
+                                    <th>{{ $user->name }}</th>
+                                    <td>
+                                        @if( $timestamp->where('user_id', $user->id)->first() == NULL)
+                                            データなし
+                                        @else
+                                            {{ $user->timestamp->sortByDesc('updated_at')->first()->punchIn->format('G:i') }}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if( $timestamp->where('user_id', $user->id)->first() == NULL)
+                                            データなし
+                                        @elseif($user->timestamp->sortByDesc('updated_at')->first()->punchOut == NULL)
+                                            勤務中です
+                                        @else
+                                            {{ $user->timestamp->sortByDesc('updated_at')->first()->punchOut->format('G:i') }}
+                                        @endif
+                                    </td>
+                                    <td><div><a class="link-ope" href="{{ action('Admin\ReportController@single', ['id' => $user->id]) }}">一覧を表示</a></div></td>
+                                </tr>
+                            @endforeach
+                        @endif
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    {{ $users->links() }}
                 </div>
             </div>
         </div>
-        
     </div>
 @endsection

@@ -63,9 +63,9 @@
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-9 offset-md-3">
-                                    <input type="submit" class="btn btn-primary" value="登録">
+                                    <input type="submit" class="btn btn-primary mr-4 mt-2" value="登録">
                                     @if($placement)
-                                    <button type="submit" class="btn btn-danger ml-4">
+                                    <button type="submit" class="btn btn-danger mt-2">
                                         <a href="{{ action('Admin\PlacementController@delete', ['id' => $user->id, 'timestamp' => $timestamp]) }}" class="delete">予定を削除</a>
                                     </button>
                                     @endif

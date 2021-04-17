@@ -53,10 +53,10 @@
                                 <div class="col-md-8 offset-md-4">
                                     <input type="hidden" name="id" value="{{ $user_form->id }}">
                                     {{ csrf_field() }}
-                                    <button type="submit" class="btn btn-primary mr-2">
+                                    <button type="submit" class="btn btn-primary mr-4 mt-2">
                                         更新
                                     </button>
-                                    <button type="submit" class="btn btn-danger ml-2">
+                                    <button type="submit" class="btn btn-danger mt-2">
                                         <a href="{{ action('Admin\StaffController@delete', [ 'id' => $user_form->id]) }}">社員情報を削除</a>
                                     </button>
                                 </div>

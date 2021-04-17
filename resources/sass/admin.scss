@@ -13,6 +13,9 @@ h3 {
 h4 {
     font-size: 16px;
 }
+td {
+  word-break : break-all;
+}
 thead th {
   background-color: #eee;
 }
@@ -22,6 +25,12 @@ button a {
 button a:hover {
     color: #fff;
     text-decoration: none;
+}
+.header-name {
+    max-width: 120px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 // ページネーション関連
 .pager {
@@ -86,7 +95,7 @@ button a:hover {
 .link {
     margin: auto;
     padding-right: 20px;
-    font-size: 16px;
+    font-size: 14px;
     a {
         color: #888;
     }
@@ -214,7 +223,6 @@ thead {
 .th-ars-5 {
     min-width: 200px;
 }
-
 // admin/staff（社員情報）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .staff-info {
     display: flex;
@@ -228,9 +236,6 @@ thead {
     color: #fff;
     text-decoration: none;
 }
-.profile {
-    white-space: nowrap;
-}
 .profile img {
     width: 50px;
     height: 50px;
@@ -238,35 +243,51 @@ thead {
 .avatar {
     text-align: center;
 }
-.th-as-1, .th-as-2 {
+.th-as-1 {
+    min-width: 85px;
+}
+.th-as-2 {
     min-width: 100px;
 }
 .th-as-3 {
     min-width: 200px;
 }
 .th-as-4 {
-    min-width: 100px;
-}
-.th-as-5 {
-    min-width: 50px;
+    min-width: 60px;
 }
 // admin/staff/create（社員登録）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .card-body {
     border: 0px none;
 }
-// admin/work（案件一覧）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// admin/work（案件情報）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .work-index-column {
     height: 120px;
     overflow: hidden;
 }
-
-// admin/work/create（案件登録）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.th-aw-1, .th-aw-3 {
+    min-width: 100px;
+}
+.th-aw-2 {
+    min-width: 200px;
+}
+.th-aw-4 {
+    min-width: 60px;
+}
+// admin/work/create（案件登録）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .pla-index-column {
     height: 40px;
     overflow: hidden;
 }
-
-
+// admin/placement/single（シフト管理・登録）ページ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.th-aps-1 {
+    min-width: 100px;
+}
+.th-aps-2 {
+    min-width: 100px;
+}
+.th-aps-3 {
+    min-width: 60px;
+}
 
 // レスポンシブ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // 576px 以上のスタイル
@@ -285,6 +306,9 @@ thead {
 }
 // 992px 以上のスタイル
 @media (min-width: 992px) {
+    .link {
+        font-size: 16px;
+    }
     .work-index-column {
         height: 80px;
     }

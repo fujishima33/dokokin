@@ -84,7 +84,7 @@
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle header-name" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -109,7 +109,7 @@
 
             <main>
                 <div class="row justify-content-center main-all">
-                    <div class="col-md-8 main-content">
+                    <div class="col-md-10 col-lg-8 main-content">
                         @yield('content')
                     </div>
                 </div>

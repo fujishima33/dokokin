@@ -14,6 +14,10 @@ h4 {
   font-size: 16px;
 }
 
+td {
+  word-break: break-all;
+}
+
 thead th {
   background-color: #eee;
 }
@@ -25,6 +29,13 @@ button a {
 button a:hover {
   color: #fff;
   text-decoration: none;
+}
+
+.header-name {
+  max-width: 120px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .pager {
@@ -97,7 +108,7 @@ button a:hover {
 .link {
   margin: auto;
   padding-right: 20px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .link a {
@@ -272,10 +283,6 @@ thead th {
   text-decoration: none;
 }
 
-.profile {
-  white-space: nowrap;
-}
-
 .profile img {
   width: 50px;
   height: 50px;
@@ -285,7 +292,10 @@ thead th {
   text-align: center;
 }
 
-.th-as-1,
+.th-as-1 {
+  min-width: 85px;
+}
+
 .th-as-2 {
   min-width: 100px;
 }
@@ -295,11 +305,7 @@ thead th {
 }
 
 .th-as-4 {
-  min-width: 100px;
-}
-
-.th-as-5 {
-  min-width: 50px;
+  min-width: 60px;
 }
 
 .card-body {
@@ -311,9 +317,34 @@ thead th {
   overflow: hidden;
 }
 
+.th-aw-1,
+.th-aw-3 {
+  min-width: 100px;
+}
+
+.th-aw-2 {
+  min-width: 200px;
+}
+
+.th-aw-4 {
+  min-width: 60px;
+}
+
 .pla-index-column {
   height: 40px;
   overflow: hidden;
+}
+
+.th-aps-1 {
+  min-width: 100px;
+}
+
+.th-aps-2 {
+  min-width: 100px;
+}
+
+.th-aps-3 {
+  min-width: 60px;
 }
 
 @media (min-width: 576px) {
@@ -331,6 +362,10 @@ thead th {
 }
 
 @media (min-width: 992px) {
+  .link {
+    font-size: 16px;
+  }
+
   .work-index-column {
     height: 80px;
   }

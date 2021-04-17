@@ -77,8 +77,8 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col"  style="width:30%">投稿時間</th>
-                                <th scope="col" style="width:70%">タイトル</th>
+                                <th scope="col"  style="width:40%">投稿時間</th>
+                                <th scope="col" style="width:60%">タイトル</th>
                             </tr>
                         </thead>
                         <tbody>
