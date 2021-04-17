@@ -362,6 +362,10 @@ thead th {
 }
 
 @media (min-width: 992px) {
+  .link {
+    font-size: 16px;
+  }
+
   .work-index-column {
     height: 80px;
   }

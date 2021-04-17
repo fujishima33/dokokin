@@ -306,6 +306,9 @@ thead {
 }
 // 992px 以上のスタイル
 @media (min-width: 992px) {
+    .link {
+        font-size: 16px;
+    }
     .work-index-column {
         height: 80px;
     }

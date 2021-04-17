@@ -109,7 +109,7 @@
 
             <main>
                 <div class="row justify-content-center main-all">
-                    <div class="ol-md-10 col-lg-8 main-content">
+                    <div class="col-md-10 col-lg-8 main-content">
                         @yield('content')
                     </div>
                 </div>
