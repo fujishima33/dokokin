@@ -13,11 +13,11 @@
             </div>
         </div>    
         <div class="row">
-            <div class="col-md-12 mx-auto p-0 mb-1 staff-info">
-                <div class="staff-info-left">
+            <div class="col-md-12 mx-auto p-0 mb-1 staff-info row">
+                <div class="col-xs-12 my-2 staff-info-left">
                     <h4 class="my-auto"> {{ $user->name }}の出勤状況一覧</h4>
                 </div>
-                <div class="staff-info-right">
+                <div class="col-xs-12 my-2 staff-info-right">
                     <button type="submit" class="btn btn-primary">
                         <a href="{{ action('Admin\ReportController@download', ['id' => $user->id]) }}">CSVダウンロード</a>
                     </button>

@@ -20,8 +20,8 @@
                         <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th width="20%">氏名</th>
-                                <th width="30%">案件名</th>
+                                <th width="40%">氏名</th>
+                                <th width="60%">案件名</th>
                             </tr>
                         </thead>
                         <tbody>

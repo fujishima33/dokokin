@@ -21,38 +21,35 @@
         </div>
         
         <div class="row">
-            <div class="col-md-12 mx-auto">
-                <div class="row">
-                    <table class="table table-bordered work-index">
-                        <thead>
+            <div class="col-md-12 mx-auto p-0 table-responsive-lg">
+                <table class="table table-bordered work-index">
+                    <thead>
+                        <tr>
+                            <th width="20%" class="th-aw-1">案件名</th>
+                            <th width="50%" class="th-aw-2">内容</th>
+                            <th width="20%" class="th-aw-3">進行状況</th>
+                            <th width="10%" class="th-aw-4"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($works as $work)
                             <tr>
-                                <th width="20%">案件名</th>
-                                <th width="50%">内容</th>
-                                <th width="20%">進行状況</th>
-                                <th width="10%"></th>
+                                <th><div class="work-index-column">{{ $work->work_title }}</div></th>
+                                <td><div class="work-index-column">{{ $work->body }}</div></td>
+                                <td><div class="work-index-column">{{ $work->status }}</div></td>
+                                <td>
+                                    <div class="work-index-column">
+                                        <a href="{{ action('Admin\WorkController@edit', ['id' => $work->id]) }}">編集</a>
+                                    </div>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($works as $work)
-                                <tr>
-                                    <th><div class="work-index-column">{{ $work->work_title }}</div></th>
-                                    <td><div class="work-index-column">{{ $work->body }}</div></td>
-                                    <td><div class="work-index-column">{{ $work->status }}</div></td>
-                                    <td>
-                                        <div class="work-index-column">
-                                            <a href="{{ action('Admin\WorkController@edit', ['id' => $work->id]) }}">編集</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <div class="pagination">
-                        {{ $works->links() }}
-                    </div>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    {{ $works->links() }}
                 </div>
             </div>
         </div>
-        
     </div>
 @endsection

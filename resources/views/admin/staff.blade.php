@@ -21,36 +21,35 @@
         </div>
         
         <div class="row">
-            <div class="col-md-12 mx-auto">
-                <div class="row table-responsive-sm">
-                    <table class="table table-bordered profile">
-                        <thead>
+            <div class="col-md-12 mx-auto p-0 table-responsive-xl">
+                <table class="table table-bordered profile">
+                    <thead>
+                        <tr>
+                            <th width="30%" class="th-as-1">アイコン画像</th>
+                            <th width="25%" class="th-as-2">氏名</th>
+                            <th width="40%" class="th-as-3">メールアドレス</th>
+                            <th width="15%" class="th-as-4"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($users as $user)
                             <tr>
-                                <th width="20%">アイコン画像</th>
-                                <th width="20%">氏名</th>
-                                <th width="30%">メールアドレス</th>
-                                <th width="10%"></th>
+                                <th class="avatar">
+                                    @if ($user->image_path)
+                                        <img src="{{ $user->image_path }}">
+                                    @endif
+                                </th>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td><div><a href="{{ action('Admin\StaffController@edit', ['id' => $user->id]) }}">編集</a></div></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($users as $user)
-                                <tr>
-                                    <th class="avatar">
-                                        @if ($user->image_path)
-                                            <img src="{{ $user->image_path }}">
-                                        @endif
-                                    </th>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td><div><a href="{{ action('Admin\StaffController@edit', ['id' => $user->id]) }}">編集</a></div></td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <div class="pagination">
-                        {{ $users->links() }}
-                    </div>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    {{ $users->links() }}
                 </div>
+                
             </div>
         </div>
     </div>

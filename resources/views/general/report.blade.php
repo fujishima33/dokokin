@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 
-                <div class="border mb-3 p-3">
+                <div class="border mb-3 p-3 table-responsive-xl">
                     <div>
                         <h3>日報一覧</h3>
                     </div>
@@ -64,12 +64,12 @@
                     <table class="table table-bordered gen-report">
                         <thead>
                             <tr>
-                                <th width="12%">日付</th>
-                                <th width="12%">出勤時刻</th>
-                                <th width="12%">退勤時刻</th>
-                                <th width="20%">案件名</th>
-                                <th width="34%">業務内容</th>
-                                <th width="10%"></th>
+                                <th width="12%" class="th-gr-1">日付</th>
+                                <th width="12%" class="th-gr-2">出勤時刻</th>
+                                <th width="12%" class="th-gr-3">退勤時刻</th>
+                                <th width="20%" class="th-gr-4">案件名</th>
+                                <th width="34%" class="th-gr-5">業務内容</th>
+                                <th width="10%" class="th-gr-6"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,14 +89,14 @@
                                             @if($report->work_id == null)
                                                 未入力です
                                             @else
-                                                <a href="work">{{ $works->where('id', $report->work_id)->first()->work_title }}</a>
+                                                <a href="work">{{ \Str::limit($works->where('id', $report->work_id)->first()->work_title, 30) }}</a>
                                             @endif
                                         </td>
                                         <td>
                                             @if($report->detail == null)
                                                 未入力です
                                             @else
-                                                {{ \Str::limit($report->detail, 30) }}
+                                                {{ \Str::limit($report->detail, 40) }}
                                             @endif
                                         </td>
                                         <td>
