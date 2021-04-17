@@ -40,8 +40,7 @@ class ReportController extends Controller
     public function download(Request $request)
     {
         $user_name = User::where('id', $request->id)->first()->name;
-        $timestamps = Timestamp::where('user_id', $request->id)->get()->toArray();
-        
+        $timestamps = Timestamp::where('user_id', $request->id)->orderBy('punchIn', 'asc')->get()->toArray();
         // StreamedResponseの第1引数（コールバック関数）
         $response = new StreamedResponse(
             function () use ($timestamps) {
