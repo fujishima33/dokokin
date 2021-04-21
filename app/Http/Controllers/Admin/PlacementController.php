@@ -158,7 +158,7 @@ class PlacementController extends Controller
         $user = User::find($request->id);
         // ユーザーが属する管理アカウントの案件情報を取得
         $author = Auth::user()->id;
-        $works = Work::where('author_id', $author)->get();
+        $works = Work::where('author_id', $author)->orderBy('created_at', 'desc')->get();
         // 配置の登録があるかどうか（bladeファイルでIF判定に使用するため）
         $userid = $request->id;
         $timestamp = $request->timestamp;
@@ -212,7 +212,7 @@ class PlacementController extends Controller
         // viewファイルで表示する内容
         $md = date('n月j日', $timestamp);
         $author = Auth::user()->id;
-        $users = User::where('author_id', $author)->paginate(20);
+        $users = User::where('author_id', $author)->orderBy('created_at', 'asc')->paginate(20);
         $regist = Placement::where('regist_date', $date)->get();
         $work = Work::get();
         
@@ -239,7 +239,7 @@ class PlacementController extends Controller
         $date = date("Y-m-d 00:00:00", $timestamp);
         $md = date('n月j日', $timestamp);
         $author = Auth::user()->id;
-        $users = User::where('author_id', $author)->paginate(20);
+        $users = User::where('author_id', $author)->orderBy('created_at', 'asc')->paginate(20);
         $regist = Placement::where('regist_date', $date)->get();
         $work = Work::get();
         
