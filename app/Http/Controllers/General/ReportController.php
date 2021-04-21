@@ -29,7 +29,7 @@ class ReportController extends Controller
     {
         // ログインしているユーザーの管理者が作成した案件を取得
         $author = Auth::user()->author_id;
-        $works = Work::where('author_id', $author)->get();
+        $works = Work::where('author_id', $author)->orderBy('created_at', 'desc')->get();
         // 要求されたTimestamp（日報情報）を取得
         $report = Timestamp::find($request->id);
         if (empty($report)) {
