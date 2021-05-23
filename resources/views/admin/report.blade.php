@@ -19,7 +19,8 @@
                     <thead>
                         <tr class="thead">
                             <th width="25%" class="th-ar-1">氏名</th>
-                            <th width="25%" class="th-ar-2">出勤時刻</th>
+                            <th width="25%" class="th-ar-2">最終打刻日</th>
+                            <th width="25%" class="th-ar-3">出勤時刻</th>
                             <th width="25%" class="th-ar-3">退勤時刻</th>
                             <th width="25%" class="th-ar-4"></th>
                         </tr>
@@ -33,16 +34,23 @@
                                         @if( $timestamp->where('user_id', $user->id)->first() == NULL)
                                             データなし
                                         @else
-                                            {{ $user->timestamp->sortByDesc('updated_at')->first()->punchIn->format('G:i') }}
+                                            {{ $user->timestamp->sortByDesc('punchIn')->first()->punchIn->format('n月j日') }}
                                         @endif
                                     </td>
                                     <td>
                                         @if( $timestamp->where('user_id', $user->id)->first() == NULL)
                                             データなし
-                                        @elseif($user->timestamp->sortByDesc('updated_at')->first()->punchOut == NULL)
+                                        @else
+                                            {{ $user->timestamp->sortByDesc('punchIn')->first()->punchIn->format('G:i') }}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if( $timestamp->where('user_id', $user->id)->first() == NULL)
+                                            データなし
+                                        @elseif($user->timestamp->sortByDesc('punchIn')->first()->punchOut == NULL)
                                             勤務中です
                                         @else
-                                            {{ $user->timestamp->sortByDesc('updated_at')->first()->punchOut->format('G:i') }}
+                                            {{ $user->timestamp->sortByDesc('punchIn')->first()->punchOut->format('G:i') }}
                                         @endif
                                     </td>
                                     <td><div><a class="link-ope" href="{{ action('Admin\ReportController@single', ['id' => $user->id]) }}">一覧を表示</a></div></td>
